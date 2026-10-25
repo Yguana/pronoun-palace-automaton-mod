@@ -1,0 +1,2 @@
+:automaton_character_item_generic:
+	Exceeding max. mood when using this spell or not using this spell before turn end will curse random tiles.

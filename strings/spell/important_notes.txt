@@ -1,0 +1,41 @@
+:name:
+	Important Notes{"?" if curse "cursed"}
+
+:description:
+	Change the enemy's mood if a word is tied to Body, Knowlodge, Pleasure, or Violence.
+	Each enemy enjoys or dislikes each subject to different degrees. Longer words are more effective.
+	
+
+:label:
+	{:no_word_type: if work_type -1}
+	{:instinct: if work_type 0}
+	{:insight: if work_type 1}
+	{:attachment: if work_type 2}
+	{:repression: if work_type 3}
+	{:shimmer: if work_type 4}
+	{:reusing: if work_type 5}
+	
+
+:no_word_type:
+	Awaiting subject{"?" if curse "cursed"}
+:instinct:
+	Body & Senses{"?" if curse "cursed"}
+:insight:
+	Science & Mind{"?" if curse "cursed"}
+:attachment:
+	Fun & Leisure{"?" if curse "cursed"}
+:repression:
+	Violence & Pain{"?" if curse "cursed"}
+:shimmer:
+	Smile to frown{"?" if curse "cursed"}
+:reusing:
+	+{recent_word_queue_placement} to go again
+
+:charge_category:
+	auto
+
+:max_charge:
+	1
+
+:flags:
+	lexicographer fixed_max_charge no_use_sound

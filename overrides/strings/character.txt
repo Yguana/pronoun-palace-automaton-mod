@@ -1,0 +1,37 @@
+:automaton: {inherits :default:}
+	:title:
+		Automaton
+
+	:name:
+		{"'Angel'" if trans}{"'Seraphim'" not trans}
+
+	:description:
+		Remnants of a liquidated illegal project.
+		Containment or termination are a low priority.
+
+	:spell_title:
+		Important Notes
+
+	:spell_description:
+		Gain multipliers based on word subject.
+
+	:info_title:
+		Info
+
+	:info:
+		Lower default multipliers, no random crits.
+
+	:sex:
+		{"X" if trans}{"N/A" not trans}
+
+	:pronouns:
+		she/he
+
+	:height:
+		6-5
+
+	:weight:
+		386
+
+	:occupation:
+		N/A

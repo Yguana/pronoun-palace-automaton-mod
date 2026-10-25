@@ -1,0 +1,270 @@
+[gd_scene format=3 uid="uid://dk3hi6rojjixm"]
+
+[ext_resource type="FontVariation" uid="uid://cw7af48rsjnk7" path="res://fonts/RobotoSlab-Bold-WideSpace.tres" id="1_ha50x"]
+[ext_resource type="Script" uid="uid://d3x10s0wpbpvj" path="res://mods/automaton_character/word_work_type_tool/word_type_ingame_debug.gd" id="1_i6bcs"]
+[ext_resource type="Script" uid="uid://c0lxgmmodg7qw" path="res://mods/automaton_character/word_work_type_tool/work_type_selection_button.gd" id="2_i6bcs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0u6y"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.8862745, 0.80784315, 0.80784315, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+bg_color = Color(0.106126174, 0.106126174, 0.106126174, 0.40100002)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jufuu"]
+bg_color = Color(0.9314144, 0.43837875, 0, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvocx"]
+bg_color = Color(0.48989832, 0.21747637, 0, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_skjds"]
+bg_color = Color(0.48989832, 0.21747637, 0, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fosaf"]
+bg_color = Color(1, 0.3131306, 0.45801115, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gft70"]
+bg_color = Color(0, 0, 0, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oajjt"]
+bg_color = Color(0.79217166, 0, 0.29042614, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jql2b"]
+bg_color = Color(0.7690427, 0.7080925, 0.5348811, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3bkf5"]
+bg_color = Color(0.52078027, 0.46532977, 0.30888683, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.1428582, 0.14285827, 0.14285818, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h26pc"]
+bg_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gvv4"]
+bg_color = Color(0.73154014, 0.5002568, 0.78077704, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2yqnt"]
+bg_color = Color(0.48714763, 0.2736236, 0.53061724, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vng8a"]
+bg_color = Color(0.15497252, 0.68764377, 0.6368709, 0.43137255)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_woi1a"]
+bg_color = Color(0.10153327, 0.47404557, 0.43782294, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ach41"]
+bg_color = Color(0.10153327, 0.47404557, 0.43782294, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsn2t"]
+bg_color = Color(0.16749999, 0.29284465, 0.08336299, 0.439)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r82jq"]
+bg_color = Color(0.32272613, 0, 0.025840001, 0.48100004)
+
+[node name="WordTypeIngameDebug" type="Node2D" unique_id=1292292898 node_paths=PackedStringArray("categorization_pop_up")]
+script = ExtResource("1_i6bcs")
+categorization_pop_up = NodePath("VBoxContainer/ConfirmationPopUp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1548159274]
+offset_left = 6.0
+offset_top = 31.0
+offset_right = 88.0
+offset_bottom = 193.0
+
+[node name="MarginContainer" type="PanelContainer" parent="VBoxContainer" unique_id=246012726]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0u6y")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" unique_id=1603233710]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1031502530]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="SelectedWord" type="LineEdit" parent="VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=180152809]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_ha50x")
+theme_override_font_sizes/font_size = 9
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
+
+[node name="QuickSelectButton" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/HBoxContainer" unique_id=204544380]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_jufuu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uvocx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_skjds")
+
+[node name="ButtonGrid" type="HBoxContainer" parent="VBoxContainer/MarginContainer/HBoxContainer" unique_id=1783815697]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="Fort" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/ButtonGrid" unique_id=1498414606 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_fosaf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gft70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oajjt")
+script = ExtResource("2_i6bcs")
+main_interface = NodePath("../../../../..")
+
+[node name="Insght" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/ButtonGrid" unique_id=1763338679 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_jql2b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3bkf5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3bkf5")
+script = ExtResource("2_i6bcs")
+button_type = 1
+main_interface = NodePath("../../../../..")
+
+[node name="None" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/ButtonGrid" unique_id=1737081976 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h26pc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yf5fn")
+script = ExtResource("2_i6bcs")
+button_type = 4
+main_interface = NodePath("../../../../..")
+
+[node name="Attatch" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/ButtonGrid" unique_id=1899261074 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_6gvv4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2yqnt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2yqnt")
+script = ExtResource("2_i6bcs")
+button_type = 2
+main_interface = NodePath("../../../../..")
+
+[node name="Repress" type="Button" parent="VBoxContainer/MarginContainer/HBoxContainer/ButtonGrid" unique_id=2000638976 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_vng8a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_woi1a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ach41")
+script = ExtResource("2_i6bcs")
+button_type = 3
+main_interface = NodePath("../../../../..")
+
+[node name="ConfirmationPopUp" type="PanelContainer" parent="VBoxContainer" unique_id=1994124609]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d0u6y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ConfirmationPopUp" unique_id=1303728695]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/ConfirmationPopUp/VBoxContainer" unique_id=1214404249]
+layout_mode = 2
+text = "Select extra ones?"
+horizontal_alignment = 1
+
+[node name="AutoCategoryWordList" type="ItemList" parent="VBoxContainer/ConfirmationPopUp/VBoxContainer" unique_id=1922046322]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
+select_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ConfirmationPopUp/VBoxContainer" unique_id=552177087]
+layout_mode = 2
+alignment = 1
+
+[node name="ConfirmAutocategory" type="Button" parent="VBoxContainer/ConfirmationPopUp/VBoxContainer/HBoxContainer" unique_id=1067080926]
+custom_minimum_size = Vector2(30, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_nsn2t")
+text = "Yes"
+
+[node name="DenyAutocategory" type="Button" parent="VBoxContainer/ConfirmationPopUp/VBoxContainer/HBoxContainer" unique_id=803433843]
+custom_minimum_size = Vector2(30, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_r82jq")
+text = "No"
+
+[connection signal="pressed" from="VBoxContainer/ConfirmationPopUp/VBoxContainer/HBoxContainer/ConfirmAutocategory" to="." method="_on_confirmed_categorization_pop_up"]
+[connection signal="pressed" from="VBoxContainer/ConfirmationPopUp/VBoxContainer/HBoxContainer/DenyAutocategory" to="." method="_on_denied_categorization_pop_up"]

@@ -1,0 +1,362 @@
+:automaton:
+	:intro:
+		:flags:
+			pre_trans priority first_encounter
+
+		::
+			Would this be the general
+			office of the Bureau of Pronouns?
+			:flags:
+				character
+
+		::
+			Did {:c_you:} not read the sign
+			above the entrance?
+			:flags:
+				nobody
+
+		::
+			...
+			:flags:
+				character
+
+		::
+			I am here to deliver a report about
+			issues found while attempting
+			to navigate to this division.
+			:flags:
+				character
+
+		::
+			I'm afraid this is som{"ething-" not control}
+			:flags:
+				nobody cutoff
+
+		::
+			This task is indeed outside your
+			usual protocol. However, this is
+			a request that must be done.
+			:flags:
+				character
+
+		::
+			I have recently been blocked from
+			The Party's file nodes. Thus, I am
+			resorting to physical delivery.
+			:flags:
+				character
+
+		::
+			You are the only position which
+			could act as a contact line with
+			who requested this research.
+			:flags:
+				character
+
+		::
+			[font_size=20]...[/font_size]
+			:flags:
+				nobody
+
+		::
+			Consider not interupting {:c_your:} "contact line".
+			:flags:
+				nobody
+
+	:first_time_back:
+		:flags:
+			difficulty_1 priority
+
+		::
+			Interesting wardrobe change.
+			:flags:
+				nobody
+
+		::
+			Do you like it?
+			:flags:
+				character
+
+		::
+			It's somehow not the tackiest
+			clothes I've seen enter here.
+			:flags:
+				nobody
+
+		::
+			Guessing these are the only
+			ones you could afford from
+			the grey markets.
+			:flags:
+				nobody
+
+		::
+			I would have loved to buy
+			these. With money.
+			Earned from a real job.
+			:flags:
+				character
+
+		::
+			To even be assigned a role,
+			I need to be properly
+			registered as a civilian.
+			:flags:
+				character
+
+		::
+			You know that's not happening.
+			:flags:
+				nobody
+
+		::
+			Machines must behave
+			like machines.
+			:flags:
+				nobody
+
+	:red:
+		:flags:
+			difficulty_9 priority story
+
+		::
+			How many more times do you plan to come in here?
+			:flags:
+				nobody
+
+		::
+			There's no issue with your pronouns and we do not need your "data".
+			:flags:
+				nobody
+
+		::
+			You are fully aware I have no interest in either of those subjects.
+			:flags:
+				character
+
+		::
+			I am going to make the question directly, with no subtelty.
+			:flags:
+				character
+
+		::
+			Where is Bennard?
+			:flags:
+				character
+
+		::
+			What did you do to him?
+			:flags:
+				character
+
+		::
+			You're smart enough to
+			figure it out.
+			:flags:
+				nobody
+
+	:hazel:
+		:flags:
+			difficulty_10 priority story non_canon
+
+		::
+			Great. You're back.
+			:flags:
+				nobody
+
+		::
+			Might aswell get something off my head while you're here:
+			:flags:
+				nobody
+
+		::
+			How will you do it? 
+			:flags:
+				nobody pre_trans
+
+		::
+			How did you do it? 
+			:flags:
+				nobody post_trans
+
+		::
+			No identification papers, no previous legal pronouns. 
+			:flags:
+				nobody
+
+		::
+			Bennard is out of the picture.
+			:flags:
+				nobody pre_trans
+
+		::
+			Bennard was out of the picture.
+			:flags:
+				nobody post_trans
+
+		::
+			How the fuck did you transition?
+			:flags:
+				nobody post_trans
+
+		::
+			Do you think you can get whatever pronoun you want if you ask gently?
+			:flags:
+				nobody pre_trans
+
+		::
+			Let's just say...
+			:flags:
+				character
+
+		::
+			I know of [i]an angel[/i] who can do miracles when it comes to this.
+			:flags:
+				character pre_trans
+
+		::
+			[i]An angel[/i] knows when to stick out for another.
+			:flags:
+				character post_trans
+
+		::
+			Fuck off. You have it easy.
+			:flags:
+				nobody 
+
+	:break_time:
+		::
+			Hello ag{"ain!" not control}
+			:flags:
+				character cutoff
+
+		::
+			I'm on my break.
+			:flags:
+				nobody
+
+		::
+			Come back in one hour.
+			:flags:
+				nobody
+
+		::
+			...
+
+		::
+			The sun is just setting down.
+			:flags:
+				character
+
+		::
+			Rest time for palace employees
+			is scheduled to be concurrent
+			with lunch.
+			:flags:
+				character
+
+		::
+			Your post is also one which is usually is not allowed to partake in these break intervals.
+			:flags:
+				character
+
+		::
+			Oh really? I didn't know.
+			:flags:
+				nobody
+
+		::
+			I didn't know at all.
+			:flags:
+				nobody
+
+	:existentialism:
+		:flags:
+			post_trans 
+
+		::
+			Why is the line drawn at me?
+			:flags:
+				character
+
+		::
+			Inflatable pool toys, herarrae,
+			concrete walls...
+			:flags:
+				character
+
+		::
+			I'm not asking for much. I'm
+			versitle enough to deal with
+			whatever comes next.
+			:flags:
+				character
+
+		::
+			You lack acquiescence. But that's
+			the more tolerable issue.
+			:flags:
+				nobody
+
+		::
+			All it takes is once loose screw.
+			One burnt circuit.
+			:flags:
+				nobody
+
+		::
+			For you to go haywire on a killing
+			spree or similar disaster.
+			:flags:
+				nobody
+
+		::
+			...
+			:flags:
+				character
+
+	:research_proposal:
+		:flags:
+			post_trans 
+
+		::
+			It seems you are having 
+			some trouble when it comes
+			to filling these forms...
+			:flags:
+				character
+
+		::
+			Would you like some help?
+			:flags:
+				character
+
+		::
+			[font_size=20]...[/font_size]
+			:flags:
+				nobody
+
+		::
+			I would be very happy if you
+			could get me in touch with
+			one of your supervisors!
+			:flags:
+				character
+
+		::
+			I'm sure you are aware of my 
+			speed and accuracy when it
+			comes reviewing text.
+			:flags:
+				character
+
+		::
+			Perhaps you could even
+			ask Ben{"nard-" not control}
+			:flags:
+				character cutoff
+
+		::
+			You're not getting a job here.
+			:flags:
+				nobody

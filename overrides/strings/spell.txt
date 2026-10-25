@@ -1,0 +1,4 @@
+:red_letter:
+	:automaton:
+		Upgrades Important Notes to Personal Notes.
+		Mood swings are easier to achive and multipliers never go below 0.5.

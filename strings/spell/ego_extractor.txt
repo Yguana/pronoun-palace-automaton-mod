@@ -1,0 +1,27 @@
+:name:
+	Ego Extractor
+
+:description:
+	Replace tile faces with the first word in the enemy's name. Extra effects depending on the enemy.
+
+:label:
+	Write name
+
+:banner:
+	{:normal_banner: not hole}
+	{:hole_banner: if hole}
+
+	:normal_banner:
+		Select a tile to place {face upper}
+
+	:hole_banner:
+		Select a tile to hole punch
+
+:charge_category:
+	very_rare
+
+:max_charge:
+	1
+
+:flags:
+	removes_word

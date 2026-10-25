@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://rb3v53hgh45o"]
+
+[ext_resource type="PackedScene" uid="uid://b71denu5x4oq3" path="res://mods/automaton_character/source/ui/mood_bar/mood_bar.tscn" id="1_cw333"]
+
+[node name="MoodBarTestRoom" type="Node2D" unique_id=431037495]
+
+[node name="MoodBar" parent="." unique_id=69385314 instance=ExtResource("1_cw333")]
+on_debug_enviroment = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1317492032]
+position = Vector2(376, 68)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cw04hy3gc2pq2"]
+
+[ext_resource type="Script" uid="uid://chwatulmq707q" path="res://mods/automaton_character/source/effects/anim_bounce_tween.gd" id="1_ifxmm"]
+
+[node name="AnimBounceTween" type="Node" unique_id=1267620402]
+script = ExtResource("1_ifxmm")

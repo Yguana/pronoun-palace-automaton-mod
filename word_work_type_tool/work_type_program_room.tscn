@@ -1,0 +1,347 @@
+[gd_scene format=3 uid="uid://cbpafnikrvuph"]
+
+[ext_resource type="FontVariation" uid="uid://cw7af48rsjnk7" path="res://fonts/RobotoSlab-Bold-WideSpace.tres" id="1_cih04"]
+[ext_resource type="Script" uid="uid://br00pq7vn1mda" path="res://mods/automaton_character/word_work_type_tool/work_type_program_full_interface.gd" id="1_mmk81"]
+[ext_resource type="Script" uid="uid://c0lxgmmodg7qw" path="res://mods/automaton_character/word_work_type_tool/work_type_selection_button.gd" id="2_0fgkf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(1, 0.3131306, 0.45801115, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmk81"]
+bg_color = Color(0, 0, 0, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quxsg"]
+bg_color = Color(0.79217166, 0, 0.29042614, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id4fa"]
+bg_color = Color(0.7690427, 0.7080925, 0.5348811, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cih04"]
+bg_color = Color(0.52078027, 0.46532977, 0.30888683, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fgkf"]
+bg_color = Color(0.73154014, 0.5002568, 0.78077704, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17auh"]
+bg_color = Color(0.48714763, 0.2736236, 0.53061724, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlrcf"]
+bg_color = Color(0.15497252, 0.68764377, 0.6368709, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eppl4"]
+bg_color = Color(0.10153327, 0.47404557, 0.43782294, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0eln"]
+bg_color = Color(0.10153327, 0.47404557, 0.43782294, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0u6y"]
+bg_color = Color(0.1764706, 0.047058824, 0, 0.23529412)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57qmd"]
+content_margin_left = 4.0
+content_margin_right = 4.0
+bg_color = Color(0, 0, 0, 0.42745098)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(0, 0, 0, 0.4392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4y2n"]
+bg_color = Color(0.30208558, 0, 0.078569196, 0.49019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oqoy2"]
+bg_color = Color(0, 0, 0, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3gngh"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.9849033, 0.89827347, 0.89522684, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7numd"]
+bg_color = Color(0.16749999, 0.29284465, 0.08336299, 0.439)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcnqv"]
+bg_color = Color(0.32272613, 0, 0.025840001, 0.48100004)
+
+[node name="WorkTypeProgramRoom" type="Node2D" unique_id=170127490 node_paths=PackedStringArray("categorization_pop_up")]
+script = ExtResource("1_mmk81")
+categorization_pop_up = NodePath("ConfirmationPopUp")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1699435384]
+
+[node name="HBoxContainer" type="HSplitContainer" parent="." unique_id=634522270]
+offset_left = -227.0
+offset_top = -129.0
+offset_right = 227.0
+offset_bottom = 129.0
+size_flags_vertical = 3
+split_offsets = PackedInt32Array(-149)
+split_offset = -149
+
+[node name="ButtonGrid" type="VBoxContainer" parent="HBoxContainer" unique_id=1467330615]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SelectedWord" type="Label" parent="HBoxContainer/ButtonGrid" unique_id=2145527803]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_cih04")
+theme_override_font_sizes/font_size = 19
+text = "test"
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Fort" type="Button" parent="HBoxContainer/ButtonGrid" unique_id=905621070 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmk81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_quxsg")
+text = "Bodily functions and senses;"
+script = ExtResource("2_0fgkf")
+main_interface = NodePath("../../..")
+
+[node name="Insght" type="Button" parent="HBoxContainer/ButtonGrid" unique_id=1155970602 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_id4fa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cih04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cih04")
+text = "Sciences and conciousness;"
+script = ExtResource("2_0fgkf")
+button_type = 1
+main_interface = NodePath("../../..")
+
+[node name="None" type="Button" parent="HBoxContainer/ButtonGrid" unique_id=1139816800 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+text = "None
+"
+script = ExtResource("2_0fgkf")
+button_type = 4
+main_interface = NodePath("../../..")
+
+[node name="Attatch" type="Button" parent="HBoxContainer/ButtonGrid" unique_id=944786406 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_0fgkf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_17auh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_17auh")
+text = "Pleasure, fun and leisure;"
+script = ExtResource("2_0fgkf")
+button_type = 2
+main_interface = NodePath("../../..")
+
+[node name="Repress" type="Button" parent="HBoxContainer/ButtonGrid" unique_id=1569270959 node_paths=PackedStringArray("main_interface")]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_xlrcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eppl4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0eln")
+text = "Violence towards another."
+script = ExtResource("2_0fgkf")
+button_type = 3
+main_interface = NodePath("../../..")
+
+[node name="WordGlossary" type="ItemList" parent="HBoxContainer" unique_id=1036202032]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 6
+auto_height = true
+max_columns = 2
+same_column_width = true
+
+[node name="PageSkipper" type="VBoxContainer" parent="HBoxContainer/WordGlossary" unique_id=1329778688]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -146.0
+offset_top = -37.0
+offset_right = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="PageSkipperCount" type="Label" parent="HBoxContainer/WordGlossary/PageSkipper" unique_id=1931571301]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 6
+text = "99999/99999"
+horizontal_alignment = 2
+
+[node name="PageSkipperButtons" type="HBoxContainer" parent="HBoxContainer/WordGlossary/PageSkipper" unique_id=342314896]
+layout_mode = 2
+
+[node name="SearchBar" type="LineEdit" parent="HBoxContainer/WordGlossary/PageSkipper/PageSkipperButtons" unique_id=1775805584]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_d0u6y")
+
+[node name="ConfirmSearch" type="Button" parent="HBoxContainer/WordGlossary/PageSkipper/PageSkipperButtons" unique_id=429786470]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
+text = "Search"
+
+[node name="PageSlider" type="HSlider" parent="HBoxContainer/WordGlossary/PageSkipper/PageSkipperButtons" unique_id=1347082066]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackwardsButton" type="Button" parent="HBoxContainer/WordGlossary/PageSkipper/PageSkipperButtons" unique_id=1416138871]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
+text = "<"
+
+[node name="ForwardButton" type="Button" parent="HBoxContainer/WordGlossary/PageSkipper/PageSkipperButtons" unique_id=231923293]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_yf5fn")
+text = ">"
+
+[node name="AutoCategoryButton" type="Button" parent="." unique_id=1106817659]
+unique_name_in_owner = true
+offset_left = -231.0
+offset_top = -113.0
+offset_right = -116.0
+offset_bottom = -94.5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 7
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n4y2n")
+toggle_mode = true
+button_pressed = true
+text = "Auto-cagetorize normal variants"
+
+[node name="ExtraButtons" type="HBoxContainer" parent="." unique_id=2048278058]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -127.0
+offset_right = -92.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SaveData" type="Button" parent="ExtraButtons" unique_id=1602318668]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
+text = "Save"
+
+[node name="LoadData" type="Button" parent="ExtraButtons" unique_id=2065764456]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
+text = "Load"
+
+[node name="GoToLastChange" type="Button" parent="ExtraButtons" unique_id=32477748]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_57qmd")
+text = "Last word"
+
+[node name="SkipClassificationButton" type="Button" parent="." unique_id=381833303]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 25)
+offset_left = -115.0
+offset_top = -44.0
+offset_right = -71.0
+offset_bottom = -19.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxFlat_oqoy2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmk81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmk81")
+text = "(Skip)"
+
+[node name="ConfirmationPopUp" type="PanelContainer" parent="." unique_id=1282499830]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -121.5
+offset_right = 131.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3gngh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ConfirmationPopUp" unique_id=197308879]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ConfirmationPopUp/VBoxContainer" unique_id=1672549817]
+layout_mode = 2
+text = "Autocategorize also found these words. Add them?"
+horizontal_alignment = 1
+
+[node name="AutoCategoryWordList" type="ItemList" parent="ConfirmationPopUp/VBoxContainer" unique_id=1919613684]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+select_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ConfirmationPopUp/VBoxContainer" unique_id=767712272]
+layout_mode = 2
+alignment = 1
+
+[node name="ConfirmAutocategory" type="Button" parent="ConfirmationPopUp/VBoxContainer/HBoxContainer" unique_id=641431966]
+custom_minimum_size = Vector2(30, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_7numd")
+text = "Yes"
+
+[node name="DenyAutocategory" type="Button" parent="ConfirmationPopUp/VBoxContainer/HBoxContainer" unique_id=126936891]
+custom_minimum_size = Vector2(30, 15)
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_fcnqv")
+text = "No"
+
+[connection signal="toggled" from="AutoCategoryButton" to="." method="_on_auto_category_button_toggled"]
+[connection signal="pressed" from="ExtraButtons/SaveData" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="ExtraButtons/LoadData" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="ExtraButtons/GoToLastChange" to="." method="_on_go_to_last_change_pressed"]
+[connection signal="pressed" from="ConfirmationPopUp/VBoxContainer/HBoxContainer/ConfirmAutocategory" to="." method="_on_confirmed_categorization_pop_up"]
+[connection signal="pressed" from="ConfirmationPopUp/VBoxContainer/HBoxContainer/DenyAutocategory" to="." method="_on_denied_categorization_pop_up"]

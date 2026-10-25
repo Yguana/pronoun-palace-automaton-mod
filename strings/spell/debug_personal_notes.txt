@@ -1,0 +1,19 @@
+:name:
+	{:personal_notes/name:} (Debug)
+
+:description:
+	{:personal_notes/description:}
+	
+	(DEUBG VERSION. WOULD YOU DOWNLOAD AN IMPORTANT NOTE?)
+
+:label:
+	{:personal_notes/label:}
+
+:charge_category:
+	auto
+
+:max_charge:
+	1
+
+:flags:
+	lexicographer fixed_max_charge no_use_sound

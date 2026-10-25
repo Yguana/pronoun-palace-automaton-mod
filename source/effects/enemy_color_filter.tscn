@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cut7wgt751a2v"]
+
+[ext_resource type="Script" uid="uid://p5mbeoj8j04p" path="res://mods/automaton_character/source/effects/enemy_color_filter.gd" id="1_5lxdq"]
+
+[node name="EnemyColorFilter" type="Node" unique_id=820395944]
+script = ExtResource("1_5lxdq")

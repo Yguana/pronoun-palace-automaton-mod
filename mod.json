@@ -1,0 +1,12 @@
+{
+	"id": "automaton_character",
+	"packs":[
+		{
+			"path":"mod.pck",
+			"override":true
+		}
+	],
+	"ignored_directories":[
+		"misc/mod_compatibility"
+	]
+}

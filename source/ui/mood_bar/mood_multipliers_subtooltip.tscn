@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://dqpe21vek68yx"]
+
+[ext_resource type="Script" uid="uid://bxsflnsw05b1v" path="res://mods/automaton_character/source/ui/mood_bar/mood_multipliers_subtooltip.gd" id="1_bmuqw"]
+[ext_resource type="Texture2D" uid="uid://cvccvhijw625p" path="res://arte/ui/intents.png" id="2_af8e2"]
+[ext_resource type="Shader" uid="uid://dyf6skvyva3v4" path="res://mods/automaton_character/source/ui/mood_bar/mood_intent_monochome_shader.gdshader" id="2_lir2m"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="3_lir2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clp4f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7gpy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ujk5d"]
+shader = ExtResource("2_lir2m")
+shader_parameter/set_to_monochrome = false
+
+[node name="SubTooltip" type="MarginContainer" unique_id=1952581557]
+offset_right = 92.0
+offset_bottom = 34.0
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_bottom = 4
+script = ExtResource("1_bmuqw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1331179973]
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 1
+
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=373804453]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(92, 15)
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"BoldOutlineLabel"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clp4f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c7gpy")
+text = "If Used Now:"
+horizontal_alignment = 1
+visible_characters_behavior = 1
+
+[node name="Description" type="RichTextLabel" parent="VBoxContainer" unique_id=147280249]
+unique_name_in_owner = true
+z_index = 1
+custom_minimum_size = Vector2(92, 0)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"GameTooltipRichText"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="FakeIntentContainers" type="HBoxContainer" parent="VBoxContainer" unique_id=540820670]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_ujk5d")
+custom_minimum_size = Vector2(0, 17)
+layout_mode = 2
+alignment = 1
+
+[node name="FakeDamageIntent" type="Control" parent="VBoxContainer/FakeIntentContainers" unique_id=1926149507]
+use_parent_material = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="VBoxContainer/FakeIntentContainers/FakeDamageIntent" unique_id=1697188685]
+use_parent_material = true
+position = Vector2(13, 6)
+texture = ExtResource("2_af8e2")
+hframes = 8
+vframes = 9
+frame = 41
+
+[node name="ShadowCloner" type="Node2D" parent="VBoxContainer/FakeIntentContainers/FakeDamageIntent/Sprite" unique_id=1423723115 node_paths=PackedStringArray("clone_offset")]
+position = Vector2(14, 8)
+script = ExtResource("3_lir2m")
+clone_offset = NodePath("..")
+modulate_depth = 4
+local_shadow = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="FakeAttackLabel" type="Label" parent="VBoxContainer/FakeIntentContainers/FakeDamageIntent" unique_id=1910540051]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = 5.0
+offset_right = 7.0
+offset_bottom = 18.0
+theme_type_variation = &"BoldOutlineLabel"
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ShadowCloner" type="Node2D" parent="VBoxContainer/FakeIntentContainers/FakeDamageIntent/FakeAttackLabel" unique_id=1433382947]
+position = Vector2(2, 2)
+script = ExtResource("3_lir2m")
+modulate_depth = 4
+local_shadow = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="FakeDefense" type="Control" parent="VBoxContainer/FakeIntentContainers" unique_id=1110210127]
+use_parent_material = true
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="VBoxContainer/FakeIntentContainers/FakeDefense" unique_id=1474573255]
+use_parent_material = true
+position = Vector2(13, 6)
+texture = ExtResource("2_af8e2")
+hframes = 8
+vframes = 9
+frame = 43
+
+[node name="ShadowCloner" type="Node2D" parent="VBoxContainer/FakeIntentContainers/FakeDefense/Sprite" unique_id=1367145065 node_paths=PackedStringArray("clone_offset")]
+position = Vector2(14, 8)
+script = ExtResource("3_lir2m")
+clone_offset = NodePath("..")
+modulate_depth = 4
+local_shadow = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="FakeDefenseLabel" type="Label" parent="VBoxContainer/FakeIntentContainers/FakeDefense" unique_id=302470051]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = 5.0
+offset_right = 7.0
+offset_bottom = 18.0
+theme_type_variation = &"BoldOutlineLabel"
+text = "-"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="ShadowCloner" type="Node2D" parent="VBoxContainer/FakeIntentContainers/FakeDefense/FakeDefenseLabel" unique_id=1498017300]
+position = Vector2(2, 2)
+script = ExtResource("3_lir2m")
+modulate_depth = 4
+local_shadow = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="TileContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1176825832]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+alignment = 1
+
+[node name="TileDescription" type="RichTextLabel" parent="VBoxContainer" unique_id=1378721108]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(92, 0)
+clip_contents = false
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_type_variation = &"GameTooltipRichText"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 6
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false

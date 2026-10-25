@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dt2xaftceofls"]
+
+[ext_resource type="Script" uid="uid://dt3heyc083vw7" path="res://mods/automaton_character/mod.gd" id="1_003f6"]
+
+[node name="Mod" type="Node2D" unique_id=2070652207]
+script = ExtResource("1_003f6")

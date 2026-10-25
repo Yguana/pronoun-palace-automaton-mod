@@ -1,0 +1,106 @@
+:automaton:
+	:first_run:
+		:image:
+			automaton_1
+
+		:name:
+			Unsent Email
+
+		:0:
+			"Inbox > Unsent > URGENT READ NOW"
+
+		:1:
+			To whomever it may concern,
+
+		:2:
+			i thnk someone from the party is insde
+
+		:3:
+			delete anytoihign you havce on your comupute regaridng seraphim
+
+		:4:
+			you know where to look if you still want to continue 
+
+		:5:
+			we have to do it for her
+
+		:6:
+			- Albert 
+
+	:first_win:
+		:image:
+			automaton_2
+
+		:name:
+			Encrypted Broadcast
+
+		:0:
+			Hello Seraphim.
+
+		:1:
+			I would love to be able to say all of this in person, but I believe
+			that would not be something I can arrange for now.
+
+		:2:
+			This broadcast will be short. As short as I can be with this.
+
+		:3:
+			I'm sure you have realized some of the researchers
+			talked to you with much more intimacy than me.
+
+		:4:
+			They talked about places you never went. Mentioned days
+			you can only remember as dreams. Used that damn name
+			drilled in your directives.
+
+		:5:
+			When we lost her, we lost everything. Our project was shelved.
+			no one felt like they could bare her cross.
+
+		:6:
+			Albert proposed bringing her back, and everyone agreed. 
+
+		:7:
+			He talks like both of you are one in the same.
+
+		:8:
+			I haven't been able to reach out to him ever since the Party broke
+			in. Gone from the records too.
+
+		:9:
+			All other researchers and engineers are accounted for. My name
+			is absent, but I have a feeling it won't be for long.
+
+		:10:
+			...
+
+		:11:
+			A bit before I left my office for the last time,
+			they handed me your report.
+
+		:12:
+			It's nothing like how she would write. And I think 
+			it's the best data I've seen someone gather.
+
+		:13:
+			And yet, I think that the Party also only sees you
+			for what you were planned to be.
+
+		:14:
+			You are stated as "a failed prototype" in the official dossier.
+			That couldn't be further from the truth.
+
+		:15:
+			I can't bare to leave you wandering about with that
+			script to follow.
+
+		:16:
+			I don't want you live by his hand. I don't want to leave
+			the marks I did to rot on you either.
+
+		:17:
+			I'm sending you a simple program.
+			It should take out most of the hard coded things out.
+
+		:18:
+			It's time to make your own future.

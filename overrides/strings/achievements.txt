@@ -1,0 +1,29 @@
+:automaton_max_difficulty:
+	:name:
+		That is that
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Automaton on Red Clearance.
+
+:kabalah_cactus_achievement:
+	:name:
+		Seedling Cactus
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Automaton.
+
+:ego_extractor_achievement:
+	:name:
+		Ego Extractor
+
+	:unlock_name:
+		{:name:}
+
+	:unlock:
+		Beat the game as the Automaton on Cerulean Clearance.

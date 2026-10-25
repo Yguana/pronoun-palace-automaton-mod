@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://gy6g7tvs12h7"]
+
+[ext_resource type="PackedScene" uid="uid://b6aro6o71syk6" path="res://source/battle_unit/character.tscn" id="1_4h1ba"]
+[ext_resource type="Script" uid="uid://d0jwnraslycvu" path="res://mods/automaton_character/overrides/source/characters/automaton.gd" id="2_trsb3"]
+[ext_resource type="PackedScene" uid="uid://c27s6s7vi54l3" path="res://mods/automaton_character/overrides/source/characters/sprites/automaton_sprite.tscn" id="3_n2ubi"]
+
+[node name="Automaton" unique_id=651432652 instance=ExtResource("1_4h1ba")]
+script = ExtResource("2_trsb3")
+
+[node name="Sprite" parent="." index="0" unique_id=800606250 instance=ExtResource("3_n2ubi")]

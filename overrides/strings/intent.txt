@@ -1,0 +1,38 @@
+:automaton_nodoby_mood_instinct:
+	:name:
+		Instinct
+	
+	:description:
+		Increases attack amount when the subject of "Body & Senses" is presented. Others subjects will in stead swap damage with attack amount.
+
+:automaton_nodoby_mood_insight:
+	:name:
+		Insight
+	
+	:description:
+		Moves the targeted column to the right, wrapping around, when the subject of "Science & Mind" is presented. Other subjects will instead target the first row.
+
+:automaton_nodoby_mood_attachment:
+	:name:
+		Attachment
+	
+	:description:
+		Lowers the amount of ash when the subject of "Fun & Leisure" is presented. Other subjects will raise it instead.
+
+:automaton_nodoby_mood_repression:
+	:name:
+		Repression
+	
+	:description:
+		Increases damage but lowers parry when the subject of "Violence & Pain" is presented. Other subjects will do the opposite instead.
+
+:automaton_cursed_column:
+	:name:
+		Cursed {Row if count 6}{Column not count 6}
+	
+	:description:
+		{:normal_desc: not count 6}
+		{:wrong_desc: if count 6}
+		
+	:normal_desc:
+		Intends to curse all of the targeted tiles.

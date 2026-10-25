@@ -1,0 +1,26 @@
+:automaton_mood:
+	:name:
+		Enemy Mood
+
+	:description:
+		Affects your base damage and defense multipliers.
+		Going up lowers damage while increasing defense and vice-versa.
+		Enemies will start encounters with a neutral mood.
+		Reaching {"top or" not on_nobody}{"the" if on_nobody} bottom will set the mood to neutral at turn end, after word submission, while also providing a small damage{"/defense" not on_nobody} bonus.
+		{:extra_nobody_desc: if on_nobody}
+	
+	:extra_nobody_desc:
+		This enemy will change their subject preferences every turn.
+	
+	:changing_mood:
+		If Used Now:
+	
+	:max_mood:
+		At Max. Mood!
+
+:automaton_failed_cactus:
+	:name:
+		Failure
+
+	:description:
+		The seed was unable to fully germinate. Perhaps you'll take better care of it next time.

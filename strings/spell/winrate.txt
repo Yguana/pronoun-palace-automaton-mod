@@ -1,0 +1,20 @@
+:name:
+	Win Rate
+
+:description:
+	[On Use] Spend 1 Charge to write a Word in the Word Builder. If no Words are found, does nothing.
+
+:label:
+	No input needed
+
+:banner:
+	Calculating play...
+
+:charge_category:
+	limited
+
+:max_charge:
+	4
+
+:flags:
+	removes_word 

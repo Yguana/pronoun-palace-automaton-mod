@@ -1,0 +1,57 @@
+:name:
+	{:adjective:} Cactus
+
+:adjective:
+	{Seedling if state 0}
+	{Growing if state 1}
+	{Flowering if state 2}
+	{Effloresced if state 3}
+	{Complete if state 4}
+	{Failed if state 5}
+	{Kabbalah not state}
+
+:description:
+	{:seedling_desc: not state}
+	{:seedling_or_normal_or_dead: if state}
+
+:seedling_or_normal_or_dead:
+	{:seedling_desc: if state 0}
+	{:normal_or_dead: not state 0}
+
+:normal_or_dead:
+	{:dead_desc: if state 5}
+	{:normal_desc: not state 5}
+
+:seedling_desc:
+	Needs time and care to reach its full potential.
+	Do you believe it will bear flowers?
+
+:normal_desc:
+	Convert {a not state 4}{ANY if state 4} {"wooden " if state 1}tile to ivory{" or concrete" not state 1}.
+	{:flowering_desc: if state 2}{:effloresced_desc: if state 3}{:effloresced_desc: if state 4}
+
+:flowering_desc:
+	1/2 chance of another tile also being converted
+
+:effloresced_desc:
+	{:flowering_desc:}, with each conversion having a 1/6 chance to instead convert the tile into a crit.
+
+:dead_desc:
+	Convert ANY tile to Tarnished.
+
+:label:
+	{"Give water" if state 0}
+	{"Enhance wooden" if state 1}
+	{"Enhance tile(s)" if state 2}
+	{"Enhance or crit" if state 3}
+	{"Grown with care" if state 4}
+	{"Failed scenario" if state 5}
+
+:charge_characters:
+	b
+
+:max_charge:
+	1
+
+:flags:
+	fixed_max_charge
