@@ -1,4 +1,11 @@
 <img width="722" height="1028" alt="pronoun_palace_readme" src="https://github.com/user-attachments/assets/04635cfe-cc06-41c4-b84b-96222bd6613d" />
+<br><br>
+
+> There is always something going on in the outskirts of the suburbs. What you may think is a run-down tenement usually has a jubilist hideout or some weirdo trafficking Bookworm blood in the basement.<br><br>
+> After months of investigation, the Bureau of Policing managed to trace the current location of a laboratory which, unlike your usual affair of this sort, had gone undercover for years. The next day, four New Cop units are dispatched to the location. Operation lasts 12 minutes, 5 seconds. All targets are deemed neutralized, but it appears something passed right under their noses...
+
+
+
 
 **The Automaton** is a mod for the game Pronoun Palace, a word-spelling rougelike about getting your pronouns back from the goverment.
 This mod mainly adds content based on the Project Moon game series.
