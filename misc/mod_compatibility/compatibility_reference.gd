@@ -5,7 +5,8 @@ extends Mod
 # These consts are not required, but it is best for organization.
 # Feel free to implement them however you would like!
 
-const AUTOMATON_CUSTOM_PUZZLE_ADDITIONS = [ # Pass all of the spell IDs you want to add.
+const AUTOMATON_CUSTOM_PUZZLE_ADDITIONS = [
+	# Pass all of the spell IDs you want to add.
 	Globals.SPELLS.DAMAGED_GOODS
 ]
 const AUTOMATON_IMPORTANT_NOTES_ADDITIONS = {
@@ -28,7 +29,7 @@ func _set_automaton_custom_puzzle_additions() -> void:
 
 
 # The following two functions do not run on their own. They are called by
-# important_notes.gd and  ego_extractor.gd when those spells load in (as in: when you
+# important_notes.gd and ego_extractor.gd when those spells load in (as in: when you
 # get the spell in game.)
 
 func get_automaton_impotant_notes_additions() -> Dictionary:
@@ -45,7 +46,7 @@ func get_automaton_ego_extractor_additions() -> Array:
 	#    new() is just meant to pass the enemy ID and a default status every converted tile;
 	#    add_rng_params() is meant for setting X (int) tiles or X% (float) of tiles to be given specific status or faces;
 	#    add_special_params() lets you pass a function to be run for every tile or tiles triggered on rng;
-	#    add_extra_params() lets you change (complete override of what the spell will write).
+	#    add_extra_params() lets you change other miscellaneous properties (i.e: complete override of what the spell will write).
 	# Check for extra info about this class in ego_extractor_enemy_data.gd.
 	
 	
