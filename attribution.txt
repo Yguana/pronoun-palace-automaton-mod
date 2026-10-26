@@ -1,0 +1,13 @@
+As an unofficial modification for a retail game, this project borrows specific code from Pronoun Palace meant to integrate it with the original program's code architecture.
+Said code is not released under the same distribution license as this project.
+The following files contain notable use of direct copies or sparsely modified copies of code from the original program's files:
+
+overrides/mods/framework/overrides_old/character_selector.gd
+overrides/source/enemies/nobody/nobody_automaton.gd
+
+
+
+Additionally, the following files also present modified code from the Pronoun Palace Mod Framework by Xanderath:
+
+overrides/mods/framework/overrides_old/character_selector.gd
+overrides/source/enemies/nobody/nobody_automaton.gd

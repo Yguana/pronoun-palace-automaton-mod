@@ -26,6 +26,9 @@ func travel_and_disappear(global_destination: Vector2,faster_anim_time: bool) ->
 	tween.tween_property(self,"scale",ending_scale,animation_time).set_ease(Tween.EASE_OUT)
 	await tween.finished
 	
+	# Used to set a non-repeating rotation to the poof cloud effect
+	var rotations = [1,2,3,4]
+	
 	for x in range(poof_scales.size()):
 		var poof_cloud = poof_cloud_room.instantiate()
 		Game.main.add_child(poof_cloud)
@@ -34,7 +37,9 @@ func travel_and_disappear(global_destination: Vector2,faster_anim_time: bool) ->
 		poof_cloud.modulate = starting_poof_modulates[x]
 		poof_cloud.speed_scale = poof_speed_playbacks[x]
 		poof_cloud.color_fade(ending_poof_modulate, 3 - poof_speed_playbacks[x])
-		poof_cloud.rotation_degrees = randi_range(1,4) * 90
+		var chosen_rotation = rotations.pick_random()
+		rotations.erase(chosen_rotation)
+		poof_cloud.rotation_degrees = chosen_rotation * 90
 	
 	queue_free()
 
