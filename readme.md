@@ -1,4 +1,4 @@
-<img width="1443" height="2048" alt="pronoun_palace_readme" src="https://github.com/user-attachments/assets/04635cfe-cc06-41c4-b84b-96222bd6613d" />
+<img width="722" height="1028" alt="pronoun_palace_readme" src="https://github.com/user-attachments/assets/04635cfe-cc06-41c4-b84b-96222bd6613d" />
 
 **The Automaton** is a mod for the game Pronoun Palace, a word-spelling rougelike about getting your pronouns back from the goverment.
 This mod mainly adds content based on the Project Moon game series.
