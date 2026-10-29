@@ -33,6 +33,8 @@ var step_length = 0
 
 var is_hidden = false
 
+signal fully_loaded
+
 func _ready() -> void:
 	bar_space_length = extreme_point_l.position.distance_to(extreme_point_r.position)
 	
@@ -55,6 +57,8 @@ func _ready() -> void:
 	if spell_node.player_spell_slot == null:
 		await spell_node.charge_updated
 	spell_node.player_spell_slot.despawned.connect(func(): queue_free())
+	
+	fully_loaded.emit()
 
 
 func _on_player_actionable() -> void:
@@ -81,6 +85,12 @@ func _get_proper_coord_from_mood_value(mood_value: int) -> float:
 	return step_length * -mood_value
 
 func set_normal_pointer_position(mood_value: int) -> void:
+	if pointer == null:
+		for x in range(get_child_count()):
+			var new_child = await child_entered_tree
+			if new_child == pointer:
+				break
+	
 	match bar_direction:
 		DIRECTION.HORIZONTAL:
 			pointer.position.x = _get_proper_coord_from_mood_value(mood_value)
@@ -179,7 +189,7 @@ func _shake_offset(seconds_since_tween_start:float,original_pos: Vector2) -> voi
 
 # Will be called manually by imporant_nodes.gd when this happens
 func _should_wait_to_dissappear_on_turn_end() -> bool:
-	return abs(spell_node.mood_value) == 10
+	return abs(spell_node.mood_value) == 10 or spell_node.is_fully_charged()
 
 func _shake_applicable_mood_faces(on_mood_set_to: int) -> void:
 	happy_face_sprite.set_shake(false)

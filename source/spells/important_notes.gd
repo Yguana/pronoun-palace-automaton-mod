@@ -120,7 +120,9 @@ func load_save_data(save):
 	should_add_neg_mood_bonus = save.should_add_neg_mood_bonus
 	mood_bonus_resets_on_this_fight = save.mood_bonus_resets_on_this_fight
 	if not is_mood_bar_placed:
-		await placed_mood_bar
+		await Game.main.player_action_started
+		await place_mood_bar_ui(true)
+		await mood_bar.fully_loaded
 	mood_bar.set_normal_pointer_position(mood_value)
 
 func is_ignoring_updates() -> bool:
@@ -528,8 +530,12 @@ func turn_end():
 		await _handle_max_mood_reset_and_bonus()
 	
 	super.turn_end()
-	if is_fully_charged() and has_curse(CURSE.CURSED):
-		_set_for_late_cursed_transform()
+	if is_fully_charged():
+		if has_curse(CURSE.CURSED):
+			_set_for_late_cursed_transform()
+			
+		_handle_no_use_mood_halving()
+	
 
 func battle_started():
 	super.battle_started()
@@ -640,6 +646,11 @@ func _replace_multiplier_tooltip(new_mood: int) -> void:
 #==================================================================================
 #                                   MOOD BONUS
 
+func _handle_no_use_mood_halving() -> void:
+	mood_value = ceil(mood_value/2.0)
+	
+	await _force_mood_bar_turn_end_change(mood_value)
+
 func _handle_max_mood_reset_and_bonus() -> void:
 	# Reaches this part of the code already assuming mood_value is at the normal max (10 or -10)
 	
@@ -652,7 +663,11 @@ func _handle_max_mood_reset_and_bonus() -> void:
 	AudioManager.play_sound(main_use_sound)
 	mood_bonus_resets_on_this_fight += 1
 	
-	await mood_bar.slide_pointer_to_new_position(mood_value)
+	await _force_mood_bar_turn_end_change(mood_value)
+
+func _force_mood_bar_turn_end_change(new_mood_value: int) -> void:
+	AudioManager.play_sound(main_use_sound)
+	await mood_bar.slide_pointer_to_new_position(new_mood_value)
 	await Game.timeout(0.4)
 	mood_bar.play_mutually_exclusive_fade(false)
 	await Game.timeout(0.1)
