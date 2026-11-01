@@ -22,7 +22,7 @@ func register_callbacks(helper: CallbackHelper) -> void:
 	# some point to that function on your file:
 	
 	helper.add_callback(
-		Callbacks.REGISTER_SPELLS.MOD_SECONDARY,_set_automaton_custom_puzzle_additions,Callbacks.BASE_PRIORITY.FIRST)
+		Callbacks.REGISTER_SPELLS.MOD_SECONDARY,_set_automaton_custom_puzzle_additions,Callbacks.BASE_GAME_PRIORITY.FIRST)
 
 func _set_automaton_custom_puzzle_additions() -> void:
 	if ModLoader.has_mod("automaton_character"):
