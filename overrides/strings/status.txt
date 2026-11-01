@@ -3,10 +3,12 @@
 		Enemy Mood
 
 	:description:
-		Affects your base damage and defense multipliers.
-		Going up lowers damage while increasing defense and vice-versa.
-		Enemies will start encounters with a neutral mood.
-		Reaching {"top or" not on_nobody}{"the" if on_nobody} bottom will set the mood to neutral at turn end, after word submission, while also providing a small damage{"/defense" not on_nobody} bonus.
+		Affects your base damage and defense multipliers. Going up lowers damage while increasing defense and vice-versa.
+		
+		Enemy mood starts neutral. If no word is presented to the enemy, their mood will slowly turn neutral.
+		
+		Reaching {"top or" not on_nobody}{"the" if on_nobody} bottom will set the mood to neutral at turn end, after word submission, while also providing a small damage{"or defense" not on_nobody} bonus.
+		
 		{:extra_nobody_desc: if on_nobody}
 	
 	:extra_nobody_desc:
@@ -17,6 +19,9 @@
 	
 	:max_mood:
 		At Max. Mood!
+	
+	:hover_tutorial:
+		Hover
 
 :automaton_failed_cactus:
 	:name:

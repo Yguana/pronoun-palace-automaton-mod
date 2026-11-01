@@ -7,10 +7,7 @@ const starting_poof_modulates = [Color("BD401F"),Color("ffde4f") ]
 const poof_speed_playbacks = [ 1.8, 1.5, 1.5 ]
 const ending_poof_modulate = Globals.COLORS.COAL
 
-# Code from this script takes heavily from battle_unit_sprite.gd
-
 var poof_cloud_room = preload("res://source/effects/poofcloud.tscn")
-
 
 func travel_and_disappear(global_destination: Vector2,faster_anim_time: bool) -> void:
 	

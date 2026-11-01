@@ -36,7 +36,7 @@ func _get_autocategorized_selections() -> Array:
 
 func pass_work_type_selection_to_core(word: String, work_type: int) -> void:
 	if core.write_or_remove_word(word, work_type):
-		if autocategory_pop_up_item_list.visible:
+		if autocategory_pop_up_item_list.visible and work_type < 4:
 			await core.word_categories_updated
 		core.save_category_list_to_file()
 		Automaton.set_global_word_categories_from_file()

@@ -49,58 +49,67 @@
 			talked to you with much more intimacy than me.
 
 		:4:
-			They talked about places you never went. Mentioned days
-			you can only remember as dreams. Used that damn name
-			drilled in your directives.
+			They talked about places you never went. Mentioned
+			days you can only remember as dreams.
 
 		:5:
-			When we lost her, we lost everything. Our project was shelved.
-			no one felt like they could bare her cross.
+			Used that damn name drilled in your directives.
 
 		:6:
-			Albert proposed bringing her back, and everyone agreed. 
+			When we lost her, the project had to be shelved.
+			No one felt like they could bare her cross.
 
 		:7:
-			He talks like both of you are one in the same.
+			We were still mourning when Albert proposed
+			bringing her back. Everyone agreed, of course.
 
 		:8:
-			I haven't been able to reach out to him ever since the Party broke
-			in. Gone from the records too.
+			He talks like both of you are one in the same.
 
 		:9:
+			I haven't been able to reach out to him ever since
+			the Party broke in. Gone from the records too.
+
+		:10:
 			All other researchers and engineers are accounted for. My name
 			is absent, but I have a feeling it won't be for long.
 
-		:10:
+		:11:
 			...
 
-		:11:
+		:12:
 			A bit before I left my office for the last time,
 			they handed me your report.
 
-		:12:
-			It's nothing like how she would write. And I think 
-			it's the best data I've seen someone gather.
-
 		:13:
-			And yet, I think that the Party also only sees you
-			for what you were planned to be.
+			It's nothing like how she would write. And yet, I can still
+			see that spark. A spark only a living thing could have.
 
 		:14:
-			You are stated as "a failed prototype" in the official dossier.
-			That couldn't be further from the truth.
+			Disorganized notes interlinked in a web of categories.
+			All so busy to look at, yet so comprehensive to read.
 
 		:15:
-			I can't bare to leave you wandering about with that
-			script to follow.
+			I think the Party only sees you for what
+			you were planned to be.
 
 		:16:
+			:0:
+				You are stated as "a failed prototype" in the official dossier.
+			:1:
+				That couldn't be further from the truth.
+
+		:17:
+			I can't bare to leave you wandering about with
+			that script to follow.
+
+		:18:
 			I don't want you live by his hand. I don't want to leave
 			the marks I did to rot on you either.
 
-		:17:
+		:19:
 			I'm sending you a simple program.
-			It should take out most of the hard coded things out.
+			It should take out most of the hard-coded things out.
 
-		:18:
+		:20:
 			It's time to make your own future.

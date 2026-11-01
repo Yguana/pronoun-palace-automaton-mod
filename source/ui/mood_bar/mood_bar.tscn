@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://xrcrntebt85c" path="res://source/ui/tooltip/tooltip_collision.tscn" id="5_m5yfd"]
 [ext_resource type="Script" uid="uid://dd27qahi243u4" path="res://mods/automaton_character/source/ui/mood_bar/mood_bar_collision.gd" id="5_oo27h"]
 [ext_resource type="Script" uid="uid://dx03m3656uuxo" path="res://mods/automaton_character/source/ui/mood_bar/mood_face_icons.gd" id="6_cnux1"]
+[ext_resource type="PackedScene" uid="uid://57frrrc02edb" path="res://source/ui/tooltip/menu_tooltip.tscn" id="8_yxaom"]
 
 [sub_resource type="Animation" id="Animation_0la23"]
 resource_name = "RESET"
@@ -232,6 +233,14 @@ position = Vector2(-5, -47)
 [node name="MaxSadPoint" type="Marker2D" parent="MoodBarOffset" unique_id=1455200295]
 unique_name_in_owner = true
 position = Vector2(-5, 47)
+
+[node name="HoverTooltip" parent="MoodBarOffset" unique_id=1798173684 instance=ExtResource("8_yxaom")]
+unique_name_in_owner = true
+visible = false
+offset_left = -27.5
+offset_top = -71.0
+offset_right = 13.5
+offset_bottom = -53.0
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="." unique_id=1363747766]
 unique_name_in_owner = true

@@ -492,7 +492,18 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedStringArray("LEXICOGRAPHER/FLINCH", "LEXICOGRAPHER/BOOK_FUMBLE")]
+"values": [PackedStringArray("CHARACTER/HURT")]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_bo0xh"]
@@ -550,13 +561,13 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath(".:sounds")
-tracks/4/interp = 1
+tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedStringArray("LEXICOGRAPHER/FLINCH", "LEXICOGRAPHER/BOOK_FUMBLE", "CHARACTER/HURT")]
+"values": [PackedStringArray("CHARACTER/HURT")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -581,6 +592,26 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["editor_star"]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_extra_hurt_sound"
+}, {
+"args": [],
+"method": &"play_extra_hurt_sound"
+}, {
+"args": [],
+"method": &"play_extra_hurt_sound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_vkm3t"]
@@ -644,7 +675,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedStringArray("LEXICOGRAPHER/FLINCH", "LEXICOGRAPHER/BOOK_FUMBLE", "CHARACTER/HURT")]
+"values": [PackedStringArray("CHARACTER/HURT")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -669,6 +700,26 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["editor_star"]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_extra_hurt_sound"
+}, {
+"args": [],
+"method": &"play_extra_hurt_sound"
+}, {
+"args": [],
+"method": &"play_extra_hurt_sound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_fqpba"]
@@ -961,7 +1012,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [PackedStringArray("LEXICOGRAPHER/FLINCH", "CHARACTER/HURT")]
+"values": [PackedStringArray("CHARACTER/HURT")]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -986,6 +1037,26 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(10, -69)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.13),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"play_extra_hurt_sound"
+}, {
+"args": [],
+"method": &"play_extra_hurt_sound"
+}, {
+"args": [],
+"method": &"play_extra_hurt_sound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_mrw7i"]
@@ -1430,7 +1501,7 @@ z_index = 10
 script = ExtResource("1_gy6af")
 trans_texture = ExtResource("2_atqy4")
 base_texture = ExtResource("3_atqy4")
-sound_groups = PackedStringArray("CHARACTER", "LEXICOGRAPHER", "GREEB", "GENERIC")
+sound_groups = PackedStringArray("CHARACTER", "LEXICOGRAPHER", "GREEB", "GENERIC", "PROLE_SERVICE")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=182028572]
 position = Vector2(-5, 7)

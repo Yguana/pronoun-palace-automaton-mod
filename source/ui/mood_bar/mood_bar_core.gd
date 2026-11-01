@@ -18,10 +18,12 @@ enum DIRECTION {
 @onready var ghost_pointer = %GhostPointer
 @onready var extreme_point_l: Marker2D = %MaxHappyPoint
 @onready var extreme_point_r: Marker2D = %MaxSadPoint
-@onready var anim_player:AnimPlayer = %AnimPlayer
+@onready var anim_player: AnimPlayer = %AnimPlayer
 
 @onready var offset_node = %MoodBarOffset
 @onready var tooltip_collision = %TooltipCollision
+
+@onready var hover_tutorial_tooptip = %HoverTooltip
 
 var mood_tooltip: GameTooltip = null
 
@@ -59,6 +61,13 @@ func _ready() -> void:
 	spell_node.player_spell_slot.despawned.connect(func(): queue_free())
 	
 	fully_loaded.emit()
+	
+	if not Automaton.PASSED_MOOD_BAR_HOVER_TUTORIAL:
+		await Game.timeout(0.5)
+		var string_key = Automaton.STRINGS.MOOD_STRING_GROUP_ITEMS.HOVER_TUTORIAL
+		hover_tutorial_tooptip.text = get_mood_status_string_group().get_string(string_key)
+		hover_tutorial_tooptip.visible = true
+		hover_tutorial_tooptip.display()
 
 
 func _on_player_actionable() -> void:
@@ -124,13 +133,20 @@ func slide_pointer_to_new_position(new_mood_value: int) -> void:
 	_shake_applicable_mood_faces(new_mood_value)
 
 func _give_tooltip_mood_infodump(tooltip: GameTooltip) -> void:
+	if not Automaton.PASSED_MOOD_BAR_HOVER_TUTORIAL:
+		Automaton.PASSED_MOOD_BAR_HOVER_TUTORIAL = true
+		hover_tutorial_tooptip.visible = false
+	
 	mood_tooltip = tooltip
-	var mood_string_group = StringManager.get_string_group(Automaton.STRINGS.MOOD_STRING_GROUP)
+	var mood_string_group = get_mood_status_string_group()
 	var is_fighting_nobody = Game.main.enemy.id == Enemies.NOBODY
 	tooltip.add_subtooltip(
 		mood_string_group.get_string(Automaton.STRINGS.MOOD_STRING_GROUP_ITEMS.NAME),
 		mood_string_group.get_string(Automaton.STRINGS.MOOD_STRING_GROUP_ITEMS.DESCRIPTION,{on_nobody = is_fighting_nobody})
 	)
+
+func get_mood_status_string_group() -> StringManager.StringGroup:
+	return StringManager.get_string_group(Automaton.STRINGS.MOOD_STRING_GROUP)
 
 func _remove_tooltip() -> void:
 	if mood_tooltip != null:
@@ -189,7 +205,9 @@ func _shake_offset(seconds_since_tween_start:float,original_pos: Vector2) -> voi
 
 # Will be called manually by imporant_nodes.gd when this happens
 func _should_wait_to_dissappear_on_turn_end() -> bool:
-	return abs(spell_node.mood_value) == 10 or spell_node.is_fully_charged()
+	if spell_node.mood_value != 0:
+		return abs(spell_node.mood_value) == 10 or spell_node.is_fully_charged()
+	return false
 
 func _shake_applicable_mood_faces(on_mood_set_to: int) -> void:
 	happy_face_sprite.set_shake(false)

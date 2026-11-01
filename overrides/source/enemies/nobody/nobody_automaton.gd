@@ -5,7 +5,7 @@ const mood_intent_list = Automaton.STRINGS.INTENT_STRING_GROUP_ITEMS
 var automaton_char_spell = Game.player.spell_container.get_spells()[0]
 var cursed_target = load("res://mods/automaton_character/source/effects/curse_target.tscn")
 # Used by all moves to change values when the player uses important notes
-var mood_mofifier = 0
+var mood_mofifier: int = 0
 var player_used_wrong_category = false
 
 var waiting_parry_intent_update_delay = false
@@ -53,7 +53,7 @@ func _init():
 			damage = {
 				0: 7, 
 				2: 10, 
-				3: 20
+				3: 18
 			}, 
 			parry = {
 				0: 12,
@@ -241,11 +241,11 @@ func _on_important_notes_use(word_category: int, word_size:int) -> void:
 		mood_intent_list.NOBODY_ATTACHMENT:
 			var num_signal = -1 if is_matching_mood else +2
 			mood_mofifier = mood_mofifier + (word_size*num_signal)
-			_request_intent_bounce_tween(to_bounce_intent[next_move],is_matching_mood)
+			_request_intent_bounce_tween(to_bounce_intent[next_move],not is_matching_mood)
 		
 		mood_intent_list.NOBODY_REPRESSION:
 			var num_signal = 1 if is_matching_mood else -1
-			mood_mofifier = max(mood_mofifier + (word_size*num_signal),0)
+			mood_mofifier = mood_mofifier + (word_size*num_signal)
 			_request_intent_bounce_tween(Intent.ATTACK, not is_matching_mood)
 			_request_intent_bounce_tween(Intent.PARRY, is_matching_mood)
 	
@@ -295,7 +295,7 @@ func _get_attachment_values() -> Dictionary:
 	return {ash = ash}
 
 func _get_repression_values() -> Dictionary:
-	return {damage = moves.repression.damage + mood_mofifier}
+	return {damage = max(moves.repression.damage + (mood_mofifier/3),1)}
 
 func wait_for_idle():
 	reset_internal_mood_for_next_move()

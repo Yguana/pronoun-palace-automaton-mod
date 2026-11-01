@@ -3,14 +3,14 @@
 		Instinct
 	
 	:description:
-		Increases attack amount when the subject of "Body & Senses" is presented. Others subjects will in stead swap damage with attack amount.
+		Increases attack amount when the subject of "Body & Senses" is presented. Others subjects will instead swap damage with attack amount.
 
 :automaton_nodoby_mood_insight:
 	:name:
 		Insight
 	
 	:description:
-		Moves the targeted column to the right, wrapping around, when the subject of "Science & Mind" is presented. Other subjects will instead target the first row.
+		Moves the targeted column to the right, wrapping around, for each letter of a "Knowlodge & Mind" word. Other subjects will instead target the first row.
 
 :automaton_nodoby_mood_attachment:
 	:name:
@@ -24,7 +24,7 @@
 		Repression
 	
 	:description:
-		Increases damage but lowers parry when the subject of "Violence & Pain" is presented. Other subjects will do the opposite instead.
+		Increases damage but lowers parry when the subject of "Pain & Violence" is presented. Other subjects will do the opposite instead.
 
 :automaton_cursed_column:
 	:name:

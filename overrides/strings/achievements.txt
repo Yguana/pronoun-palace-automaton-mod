@@ -1,6 +1,6 @@
 :automaton_max_difficulty:
 	:name:
-		That is that
+		No need to Overclock
 
 	:unlock_name:
 		{:name:}

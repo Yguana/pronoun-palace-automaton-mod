@@ -5,6 +5,7 @@ const fireball_attack = preload("res://mods/automaton_character/source/effects/f
 var moving_enemy_true_markers = {
 	Enemies.NOPPY: "NoppyOffset/Noppy",
 	Enemies.SOPPY: "NoppyOffset/Noppy",
+	Enemies.SNOWBALL: "Sprite",
 	Enemies.NOBODY: "CigaretteMarker"
 }
 var special_enemy_markers = {
@@ -12,10 +13,41 @@ var special_enemy_markers = {
 	Enemies.TRAFFIC: _special_npc_targeting
 }
 var special_enemy_offsets = {
+	# ACT 1
+	Enemies.CAT: Vector2(30,10),
+	Enemies.DECLAWED: Vector2(30,10),
+	
 	Enemies.NPCS: Vector2(0,-39),
 	Enemies.TRAFFIC: Vector2(0,-39),
+	
+	Enemies.PEOPLE: Vector2(30,10),
+	Enemies.DECEDENT: Vector2(30,10),
+	
 	Enemies.NOPPY: Vector2(-10,-15),
-	Enemies.SOPPY: Vector2(-10,-15)
+	Enemies.SOPPY: Vector2(-10,-15),
+	
+	Enemies.FAT_CAT: Vector2(30,20),
+	Enemies.PURRGEOISIE: Vector2(30,20),
+	
+	# ACT 2
+	Enemies.SNOWBALL: Vector2(-15,-60),
+	Enemies.EIGHTBALL: Vector2(-15,-60),
+	
+	Enemies.STRAWMAN: Vector2(5,35),
+	Enemies.HOUSEBROKEN: Vector2(5,35),
+	
+	Enemies.UFO: Vector2(-15,25),
+	
+	Enemies.BRUTALIST: Vector2(20,10),
+	
+	# ACT 3
+	Enemies.PRODIGY: Vector2(10,-15),
+	Enemies.INVALID: Vector2(10,-15),
+	
+	Enemies.UMAMI: Vector2(10,-10),
+	Enemies.SALT: Vector2(10,-10),
+	
+	Enemies.BAMMON: Vector2(30,-10),
 }
 @onready var fireball_point = %FireballMarker
 
@@ -63,3 +95,8 @@ func summon_and_throw_fireball() -> void:
 func _special_npc_targeting() -> Node2D:
 	var first_npc = Game.main.enemy.sprite.get_live_npcs()[0]
 	return first_npc
+
+func play_extra_hurt_sound() -> void:
+	AudioManager.play_sound(Sounds.PROLE_SERVICE.TONE,0.5,1.4)
+	await Game.timeout(0.02)
+	AudioManager.play_sound(Sounds.PROLE_SERVICE.TONE,0.65,1.4)

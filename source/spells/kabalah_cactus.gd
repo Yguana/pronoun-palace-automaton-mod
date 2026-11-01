@@ -45,7 +45,7 @@ var state_before_death = null # Used to prevent weird interactions when reloadin
 var num_usage = 0 
 var has_to_evolve = false
 
-const crit_rng_percent = 0.17
+const crit_rng_percent = 0.25
 const extra_tile_rng_percent = 0.5
 
 func get_hv_frames() -> Vector2i:
@@ -140,7 +140,8 @@ func _target_tile_for_conversion(tile : Tile, can_roll_crit : bool, is_preview: 
 		if _roll_for_crit_conversion():
 			status_to_apply = Globals.TileStatus.CRIT
 			if is_extra_tile:
-				AudioManager.play_sound(Sounds.TILE.CRIT) # For some reasion, crit sound doesn't play for the extra tile
+				# Crit sound doesn't play for the extra tile. Manually fixest that
+				AudioManager.play_sound(Sounds.TILE.CRIT)
 	tile.add_status(status_to_apply)
 	if not is_preview:
 		tile.add_poofcloud(tile.get_color())
@@ -273,7 +274,7 @@ func _play_evolution_sounds() -> void:
 		)
 		await Game.timeout(audio_initial_delay + (x * 0.08))
 
-# Code taken straight out of mood_bar_core.gd
+# Edited version of a function from mood_bar_core.gd
 func _shake_offset(seconds_since_tween_start:float,original_pos: Vector2) -> void:
 	player_spell_slot.spell_sprite.position = Vector2(
 		original_pos.x + (randf_range(-2,2) * seconds_since_tween_start),

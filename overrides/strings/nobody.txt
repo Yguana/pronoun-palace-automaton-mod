@@ -4,8 +4,8 @@
 			pre_trans priority first_encounter
 
 		::
-			Would this be the general
-			office of the Bureau of Pronouns?
+			Would this be the general office
+			of the Bureau of Pronouns?
 			:flags:
 				character
 
@@ -59,7 +59,8 @@
 				nobody
 
 		::
-			Consider not interupting {:c_your:} "contact line".
+			Consider not interupting
+			{:c_your:} "contact line".
 			:flags:
 				nobody
 
@@ -120,12 +121,15 @@
 			difficulty_9 priority story
 
 		::
-			How many more times do you plan to come in here?
+			How many more times do
+			you plan to come in here?
 			:flags:
 				nobody
 
 		::
-			There's no issue with your pronouns and we do not need your "data".
+			There's no issue with your
+			pronouns and we do not
+			need your "data".
 			:flags:
 				nobody
 
@@ -180,7 +184,8 @@
 				nobody post_trans
 
 		::
-			No identification papers, no previous legal pronouns. 
+			No identification papers, no
+			previous legal pronouns. 
 			:flags:
 				nobody
 
@@ -200,7 +205,7 @@
 				nobody post_trans
 
 		::
-			Do you think you can get whatever pronoun you want if you ask gently?
+			Do you think you'll get whatever pronouns you want if you just ask gently?
 			:flags:
 				nobody pre_trans
 
@@ -210,12 +215,13 @@
 				character
 
 		::
-			I know of [i]an angel[/i] who can do miracles when it comes to this.
+			I know [i]an angel[/i] who can do miracles when it comes to this.
 			:flags:
 				character pre_trans
 
 		::
-			[i]An angel[/i] knows when to stick out for another.
+			[i]An angel[/i] knows
+			when to stick out for another.
 			:flags:
 				character post_trans
 
@@ -256,7 +262,9 @@
 				character
 
 		::
-			Your post is also one which is usually is not allowed to partake in these break intervals.
+			Your post is also one which is
+			usually is not allowed to
+			partake in these break intervals.
 			:flags:
 				character
 
@@ -305,8 +313,8 @@
 				nobody
 
 		::
-			For you to go haywire on a killing
-			spree or similar disaster.
+			For you to go haywire on
+			a killing spree.
 			:flags:
 				nobody
 
@@ -358,5 +366,40 @@
 
 		::
 			You're not getting a job here.
+			:flags:
+				nobody
+
+	:inefficiency:
+		:flags:
+			post_trans
+
+		::
+			I hate the fact that you keep
+			coming back.
+			:flags:
+				nobody
+
+		::
+			I have to wonder why you
+			let me stay around then.
+			:flags:
+				character
+
+		::
+			I can say with certainty The
+			Party is more than capeable
+			of tracking me down.
+			:flags:
+				character
+
+		::
+			Dealing with things like you
+			isn't worth the effort for them.
+			:flags:
+				nobody
+
+		::
+			I don't even fill the forms
+			anymore. It's pointless.
 			:flags:
 				nobody

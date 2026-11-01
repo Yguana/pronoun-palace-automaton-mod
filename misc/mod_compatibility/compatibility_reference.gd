@@ -1,6 +1,7 @@
 extends Mod
 
 # This is a reference on what to add to make other mods compatible with this mod.
+# Code here should be added to the mod.gd script of your mod.
 
 # These consts are not required, but it is best for organization.
 # Feel free to implement them however you would like!

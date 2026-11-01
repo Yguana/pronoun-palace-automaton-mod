@@ -47,6 +47,3 @@ To use/modify/add to these mods, through the Godot editor, you will need a decom
 # MOD COMPATIBILITY
 
 This mod has easy pluggable methods which allow for easy linking with other mods. Refer to ``misc/mod_compatibility/compatibility_reference.gd`` for more info on how to add compatibility. 
-
-
-

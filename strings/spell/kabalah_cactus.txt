@@ -31,10 +31,10 @@
 	{:flowering_desc: if state 2}{:effloresced_desc: if state 3}{:effloresced_desc: if state 4}
 
 :flowering_desc:
-	1/2 chance of another tile also being converted
+	1/2 chance of another tile also being converted.
 
 :effloresced_desc:
-	{:flowering_desc:}, with each conversion having a 1/6 chance to instead convert the tile into a crit.
+	{:flowering_desc:} Each tile has an additional 1/4 chance of turning into a crit instead.
 
 :dead_desc:
 	Convert ANY tile to Tarnished.

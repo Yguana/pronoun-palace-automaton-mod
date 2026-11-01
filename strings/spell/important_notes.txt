@@ -2,9 +2,8 @@
 	Important Notes{"?" if curse "cursed"}
 
 :description:
-	Change the enemy's mood if a word is tied to Body, Knowlodge, Pleasure, or Violence.
+	Change the enemy's mood if a word is tied to Body, Knowlodge, Pleasure, or Pain.
 	Each enemy enjoys or dislikes each subject to different degrees. Longer words are more effective.
-	
 
 :label:
 	{:no_word_type: if work_type -1}
@@ -21,11 +20,11 @@
 :instinct:
 	Body & Senses{"?" if curse "cursed"}
 :insight:
-	Science & Mind{"?" if curse "cursed"}
+	Knowlodge & Mind{"?" if curse "cursed"}
 :attachment:
 	Fun & Leisure{"?" if curse "cursed"}
 :repression:
-	Violence & Pain{"?" if curse "cursed"}
+	Pain & Violence{"?" if curse "cursed"}
 :shimmer:
 	Smile to frown{"?" if curse "cursed"}
 :reusing:

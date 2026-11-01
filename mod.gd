@@ -33,6 +33,7 @@ const STRINGS = {
 		DESCRIPTION = "description",
 		ITEM_TOOLTIP_TITLE_NORMAL = "changing_mood",
 		ITEM_TOOLTIP_TITLE_MAX = "max_mood",
+		HOVER_TUTORIAL = "hover_tutorial"
 	},
 	CACTUS_FAILED_STRING_GROUP = "automaton_failed_cactus",
 	
@@ -63,6 +64,8 @@ const STRINGS = {
 		CERULEAN_CLEAR = "ego_extractor_achievement",
 		RED_CLEAR = "automaton_max_difficulty"
 	},
+	
+	PASSED_MOOD_BAR_HOVER_TUTORIAL = "passed_mood_bar_hover_tutorial",
 	
 	
 	MOD_OPTIONS = {
@@ -131,6 +134,9 @@ const MISC = {
 # Global refference for the word categories. Can be reset through set_global_word_categories_from_file()
 static var WORD_CATEGORIES: Dictionary = {}
 
+# Used by mood_bar.tscn to define if a clarifying tooltip should be shown
+static var PASSED_MOOD_BAR_HOVER_TUTORIAL = false
+
 # Dictionary which holds the boolean unlock values for the custom achievements introduced by the mod
 static var CUSTOM_ACHIEVEMENTS: Dictionary[String,bool] = {
 	STRINGS.ACHIEVEMENTS.BEIGE_CLEAR: false,
@@ -149,6 +155,10 @@ enum UNLOCK_SETTING {
 var handling_unlocks: UNLOCK_SETTING = UNLOCK_SETTING.READ_FROM_FILE
 var joke_items: bool = false
 
+
+# Filepath to the popup thrown when the mod can't detect the framework being installed
+const FRAMEWORK_ERROR_POPUP_PATH = "res://mods/automaton_character/misc/error_popup.tscn"
+
 static func set_global_word_categories_from_file(file_path: String = WORD_WORK_CATEGORY_FILE_PATH) -> void:
 	WORD_CATEGORIES.clear()
 	var json_string = FileAccess.get_file_as_string(file_path)
@@ -161,6 +171,10 @@ static func set_global_word_categories_from_file(file_path: String = WORD_WORK_C
 
 # Functions bellow use integration tools from the framework done by Xanderath/Emarald64. 
 func _ready() -> void:
+	if not ModLoader.has_mod("framework"):
+		_create_missing_framework_popup()
+		return
+	
 	var normal_item_id = "%s:%s" % [STRINGS.MOD_ID, STRINGS.RESEARCH_NOTES_BASE_ID]
 	var debug_item_id =  "%s:%s" % [STRINGS.MOD_ID, STRINGS.RESEARCH_NOTES_DEBUG_ID]
 	
@@ -191,6 +205,15 @@ func _ready() -> void:
 	ModSettings.add_menu("Automaton",generate_mod_settings_page)
 
 
+func _create_missing_framework_popup() -> void:
+	var scene = preload(FRAMEWORK_ERROR_POPUP_PATH)
+	var warning_popup = scene.instantiate()
+	
+	await Game.main_menu.ready
+	await Game.main_menu.cutscene.screen_wipe.screen_covered # Waits for opening credits to play
+	Game.add_child(warning_popup)
+	warning_popup.popup_centered_clamped()
+	warning_popup.grab_focus()
 
 # ==============================================================================
 #                           SPELLS & REGISTRIES
@@ -314,12 +337,14 @@ static func _push_achievement_as_unlocked(achievement_key: String) -> void:
 	CUSTOM_ACHIEVEMENTS[achievement_key] = true
 
 func load_save_data(data: Dictionary) -> void:
+	PASSED_MOOD_BAR_HOVER_TUTORIAL = data.get(STRINGS.PASSED_MOOD_BAR_HOVER_TUTORIAL,false)
 	var loaded_achievements = data.get(STRINGS.ACHIEVEMENT_SAVE_KEY,{})
 	_load_custom_achievements(loaded_achievements)
 
 func get_save_data() -> Dictionary:
 	return {
-		STRINGS.ACHIEVEMENT_SAVE_KEY: CUSTOM_ACHIEVEMENTS
+		STRINGS.ACHIEVEMENT_SAVE_KEY: CUSTOM_ACHIEVEMENTS,
+		STRINGS.PASSED_MOOD_BAR_HOVER_TUTORIAL: PASSED_MOOD_BAR_HOVER_TUTORIAL
 	}
 
 static func _load_custom_achievements(from_dict: Dictionary) -> void:

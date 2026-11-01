@@ -1,6 +1,6 @@
 extends TileModifierSpell
 
-var e = Enemies #made shorter to improve some match extressions in readibility
+var e = Enemies # Shorter pointed to improve the readibility of some some match extressions in this script
 var modded_enemies_data = {}
 var current_name_letter: String = ""
 var current_name_index: int = 0
