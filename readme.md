@@ -42,7 +42,7 @@ Extract the content of both zips, and place them inside the mod folder like this
 -  ``mods/framework``
 -  ``mods/automaton_character``
 
-**DO NOT** let the .zip contents inside an extra folder, like ``mods/automaton_character/automaton_character``. Mods will not loading properly if that is done.
+**DO NOT** let the .zip contents inside an extra folder, like ``mods/automaton_character/automaton_character``. Mods will not load properly if that is done.
 
 To use/modify/add to these mods, through the Godot editor, you will need a decompiled version of the game and the **SOURCE CODE** of both mods, organized in the ``/mods/`` folders the same way as a compiled version of the game.
 
