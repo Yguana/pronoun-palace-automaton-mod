@@ -220,15 +220,15 @@ func _create_missing_framework_popup() -> void:
 
 func register_callbacks(helper: CallbackHelper) -> void :
 	helper.add_callback(
-		Callbacks.REGISTER_SPELLS.MOD_INIT,
+		Callbacks.REGISTER_SPELLS.MOD,
 		_register_spells,
-		Callbacks.BASE_PRIORITY.FIRST
+		Callbacks.BASE_GAME_PRIORITY.FIRST
 	)
 	
 	helper.add_callback(
 		Callbacks.MODIFY_SPELL_POOL.EARLY,
 		_modify_spells_on_unlocks_and_options,
-		Callbacks.BASE_PRIORITY.FIRST
+		Callbacks.BASE_GAME_PRIORITY.FIRST
 	)
 
 func _register_spells():
