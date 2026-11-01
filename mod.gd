@@ -171,9 +171,9 @@ static func set_global_word_categories_from_file(file_path: String = WORD_WORK_C
 
 # Functions bellow use integration tools from the framework done by Xanderath/Emarald64. 
 func _ready() -> void:
-	#if not ModLoader.has_mod("framework"):
-	_create_missing_framework_popup()
-	#	return
+	if not ModLoader.has_mod("framework"):
+		_create_missing_framework_popup()
+		return
 	
 	var normal_item_id = "%s:%s" % [STRINGS.MOD_ID, STRINGS.RESEARCH_NOTES_BASE_ID]
 	var debug_item_id =  "%s:%s" % [STRINGS.MOD_ID, STRINGS.RESEARCH_NOTES_DEBUG_ID]
