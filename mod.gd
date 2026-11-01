@@ -171,9 +171,9 @@ static func set_global_word_categories_from_file(file_path: String = WORD_WORK_C
 
 # Functions bellow use integration tools from the framework done by Xanderath/Emarald64. 
 func _ready() -> void:
-	if not ModLoader.has_mod("framework"):
-		_create_missing_framework_popup()
-		return
+	#if not ModLoader.has_mod("framework"):
+	_create_missing_framework_popup()
+	#	return
 	
 	var normal_item_id = "%s:%s" % [STRINGS.MOD_ID, STRINGS.RESEARCH_NOTES_BASE_ID]
 	var debug_item_id =  "%s:%s" % [STRINGS.MOD_ID, STRINGS.RESEARCH_NOTES_DEBUG_ID]
@@ -207,12 +207,11 @@ func _ready() -> void:
 
 func _create_missing_framework_popup() -> void:
 	var scene = preload(FRAMEWORK_ERROR_POPUP_PATH)
-	var warning_popup = scene.instantiate()
+	var warning_popup: Control = scene.instantiate()
 	
 	await Game.main_menu.ready
 	await Game.main_menu.cutscene.screen_wipe.screen_covered # Waits for opening credits to play
-	Game.add_child(warning_popup)
-	warning_popup.popup_centered_clamped()
+	Game.main_menu.get_node("HUD").add_child(warning_popup)
 	warning_popup.grab_focus()
 
 # ==============================================================================

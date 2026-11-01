@@ -6,27 +6,42 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.8862745, 0.80784315, 0.80784315, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g4v7s"]
+content_margin_bottom = 5.0
 texture = ExtResource("1_etap5")
 texture_margin_left = 2.0
 texture_margin_top = 7.0
 texture_margin_right = 2.0
-expand_margin_bottom = 50.0
 axis_stretch_horizontal = 1
 
-[node name="ErrorPopup" type="Window" unique_id=652803731]
-oversampling_override = 1.0
-initial_position = 1
-size = Vector2i(500, 300)
-script = ExtResource("1_jyjaj")
-
-[node name="Control" type="Control" parent="." unique_id=658028342]
-texture_filter = 1
+[node name="ErrorPopup" type="Control" unique_id=1809399469]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jyjaj")
+
+[node name="Control" type="Control" parent="." unique_id=658028342]
+texture_filter = 1
+custom_minimum_size = Vector2(280, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.0
+offset_top = -75.0
+offset_right = 140.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -44,11 +59,14 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.5
+offset_bottom = 1.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1153075006]
 layout_mode = 2
@@ -58,25 +76,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1260320570]
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 18
 text = "Oops!"
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1708769755]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/line_spacing = 1
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 6
 text = "Could not find the Framework mod, which should be located at /mods/framework/
 The Automaton mod depends on the framework  to work correctly.
 Refer to the installation guide on readme.md for more info."
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="Control/MarginContainer/HBoxContainer/VBoxContainer" unique_id=835232948]
-custom_minimum_size = Vector2(205, 50)
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -90,7 +108,7 @@ theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_g4v7s")
 theme_override_styles/hover = SubResource("StyleBoxTexture_g4v7s")
@@ -99,7 +117,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_g4v7s")
 text = "OK"
 
 [node name="Center" type="TextureRect" parent="Control/MarginContainer/HBoxContainer" unique_id=2100507815]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(60, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("2_jyjaj")
