@@ -7,7 +7,7 @@
 		
 		Enemy mood starts neutral. If no word is presented to the enemy, their mood will slowly turn neutral.
 		
-		Reaching {"top or" not on_nobody}{"the" if on_nobody} bottom will set the mood to neutral at turn end, after word submission, while also providing a small damage{"or defense" not on_nobody} bonus.
+		Reaching {"top or" not on_nobody}{"the" if on_nobody} bottom will set the mood to neutral at turn end, after word submission, while also providing a damage{" or defense" not on_nobody} bonus and a crit tile.
 		
 		{:extra_nobody_desc: if on_nobody}
 	

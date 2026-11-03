@@ -398,18 +398,19 @@ func _use():
 	else:
 		new_value = get_future_mood_value(not has_curse(CURSE.CURSED)) # Doesn't clamp value if it is cursed
 	
-	# One of the Hazel clearence curse gimmicks: Spawning cursed tiles on "mood overflow"
-	if has_curse(CURSE.CURSED):
-		var cursed_tile_ammount = 0
-		if new_value > max_pos_mood_value: 
-			cursed_tile_ammount = new_value - max_pos_mood_value
-		elif new_value < max_neg_mood_value:
-			cursed_tile_ammount = new_value - max_neg_mood_value
-		cursed_tile_ammount = max(0,abs(cursed_tile_ammount))
-		
-		if cursed_tile_ammount > 0:
-			_handle_cursed_tiles_spawning(cursed_tile_ammount)
-			new_value = clamp_to_fit_mood_value_range(new_value)
+	# Previous Hazel clearence gimmick
+	
+	#if has_curse(CURSE.CURSED):
+	#	var cursed_tile_ammount = 0
+	#	if new_value > max_pos_mood_value: 
+	#		cursed_tile_ammount = new_value - max_pos_mood_value
+	#	elif new_value < max_neg_mood_value:
+	#		cursed_tile_ammount = new_value - max_neg_mood_value
+	#	cursed_tile_ammount = max(0,abs(cursed_tile_ammount))
+	#	
+	#	if cursed_tile_ammount > 0:
+	#		_handle_cursed_tiles_spawning(cursed_tile_ammount)
+	#		new_value = clamp_to_fit_mood_value_range(new_value)
 	
 	var should_run_main_use = mood_value != new_value
 	
@@ -428,6 +429,9 @@ func _use():
 			# thus give feeback regardless of if the mood value changed.
 			if not should_run_main_use and has_switched_to_nobody_moods:
 				_run_visual_and_audio_use_effects(new_value)
+	
+	if has_curse(CURSE.CURSED):
+		await _hazel_tarnish_presented_word()
 	
 	switch_state(-1) # No work type state
 	_post_use()
@@ -581,9 +585,9 @@ func turn_end():
 	super.turn_end()
 	
 	if is_fully_charged():
-		# One of the Hazel clearence curse gimmicks: Spawning cursed tiles if the spell is unused during a turn
-		if has_curse(CURSE.CURSED):
-			_set_for_late_cursed_transform()
+		# Previous Hazel clearence gimmick
+		#if has_curse(CURSE.CURSED):
+		#	_set_for_late_cursed_transform()
 			
 		if mood_value != 0 and not has_reset_mood:
 			_handle_no_use_mood_halving()
@@ -690,15 +694,23 @@ func _handle_no_use_mood_halving() -> void:
 ## Reserved for situations where the player has reached one of the mood bar's extremes.
 func _handle_max_mood_reset_and_bonus() -> void:
 	# Reaches this part of the code already assuming mood_value is at the normal max (10 or -10)
+	var crit_tile_type
 	
 	if mood_value > 0: # Positive/Happy Mood
 		should_add_pos_mood_bonus = true
+		crit_tile_type = TileType.DEFENSE
 	else: # Negative/Segative Mood
 		should_add_neg_mood_bonus = true
+		crit_tile_type = TileType.DAMAGE
 	mood_value = 0
 	mood_bonus_resets_on_this_fight += 1
 	
 	await _force_mood_bar_turn_end_change(mood_value,true)
+	
+	var crit_ammount = ceil(float(mood_bonus_resets_on_this_fight)/2)
+	await _summon_bonus_crit_tile(crit_tile_type,crit_ammount)
+	
+	await Game.timeout(0.42)
 
 func _force_mood_bar_turn_end_change(new_mood_value: int, big_delay: bool = false) -> void:
 	mood_bar.slide_pointer_to_new_position(new_mood_value)
@@ -724,6 +736,29 @@ func _create_mood_bonus_reset_filter(positive_mood: bool) -> void:
 	enemy_filter.prepare_finger_picked_color(matching_color)
 	player.add_child(enemy_filter)
 	enemy_filter.play_fade_on_enemy(player.sprite)
+
+func _summon_bonus_crit_tile(target_type: TileType, amount: int = 1) -> void:
+	var affect_tiles: Array[Tile] = []
+	
+	for x in range(amount):
+		var tile_groups = tile_board.get_tile_groups({
+			type_priority = target_type,
+			exclude_tiles = affect_tiles
+		})
+		
+		if tile_groups.is_empty():
+			break
+		
+		var priority_group = tile_groups[0]
+		affect_tiles.append(rng.spell.pick_random(priority_group))
+	
+	for tile in affect_tiles:
+		tile.add_status(TileStatus.CRIT)
+		tile.set_type(target_type)
+		tile.add_poofcloud(tile.get_color())
+		await Game.timeout(0.08)
+	
+	
 
 #==================================================================================
 #                                  RED LETTER
@@ -758,39 +793,47 @@ func transform_spell(new_spell_id, keep_secret_id = true, keep_curse = true, kee
 #==================================================================================
 #                                 HAZEL CLEARANCE
 
-## Used to place cursed tiles when playing Hazel Clearance
-func _handle_cursed_tiles_spawning(cursed_tile_ammount: int) -> void:
-	if not has_curse(CURSE.CURSED):
-		return
-	if cursed_tile_ammount < 1:
-		cursed_tile_ammount = 1
+func _hazel_tarnish_presented_word() -> void:
+	var tiles: Array[Tile] = word_builder.tiles
 	
-	var target_tiles = []
-	for x in range(cursed_tile_ammount):
-		var tiles = tile_board.get_tiles({
-			effect_priority = [Globals.TileStatus.CURSED],
-			exclude_final_effect_priority = true,
-			exclude_tiles = target_tiles
-		})
-		if tiles.is_empty():
-			break
-		
-		shake.emit()
-		var iteration_tile: Tile = rng.spell.pick_random(tiles)
-		target_tiles.append(iteration_tile)
-		iteration_tile.add_status(TileStatus.CURSED)
-		iteration_tile.add_poofcloud(iteration_tile.get_color())
-		await Game.timeout(0.12)
-
-func _get_late_cursed_tiles_ammount(specific_mood_value: int) -> int:
-	return abs(specific_mood_value - int(specific_mood_value/3))
-
-func _set_for_late_cursed_transform() -> void:
-	var saved_mood_value = mood_value
-	await Game.main.player_action_started
-	_handle_cursed_tiles_spawning(_get_late_cursed_tiles_ammount(saved_mood_value))
+	for tile: Tile in tiles:
+		if not tile.has_harmful_status() and not tile.has_status(TileStatus.CRIT):
+			tile.add_status(TileStatus.POOP)
+			tile.add_poofcloud(tile.get_color())
+			await Game.timeout(0.12)
 
 
+# Parts of the first iteration of the hazel gimmick. Goes unused with the current tarnish gimmick
+#func _handle_cursed_tiles_spawning(cursed_tile_ammount: int) -> void:
+#	if not has_curse(CURSE.CURSED):
+#		return
+#	if cursed_tile_ammount < 1:
+#		cursed_tile_ammount = 1
+#	
+#	var target_tiles = []
+#	for x in range(cursed_tile_ammount):
+#		var tiles = tile_board.get_tiles({
+#			effect_priority = [Globals.TileStatus.CURSED],
+#			exclude_final_effect_priority = true,
+#			exclude_tiles = target_tiles
+#		})
+#		if tiles.is_empty():
+#			break
+#		
+#		shake.emit()
+#		var iteration_tile: Tile = rng.spell.pick_random(tiles)
+#		target_tiles.append(iteration_tile)
+#		iteration_tile.add_status(TileStatus.CURSED)
+#		iteration_tile.add_poofcloud(iteration_tile.get_color())
+#		await Game.timeout(0.12)
+#
+#func _get_late_cursed_tiles_ammount(specific_mood_value: int) -> int:
+#	return abs(specific_mood_value - int(specific_mood_value/3))
+#
+#func _set_for_late_cursed_transform() -> void:
+#	var saved_mood_value = mood_value
+#	await Game.main.player_action_started
+#	_handle_cursed_tiles_spawning(_get_late_cursed_tiles_ammount(saved_mood_value))
 
 
 #==================================================================================
