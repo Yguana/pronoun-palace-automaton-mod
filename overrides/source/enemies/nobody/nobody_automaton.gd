@@ -66,7 +66,7 @@ func _init():
 	}
 
 func _get_health_scaling():
-	return [60, 70, 80, 90] # Same as Child/Fisher/Addict
+	return [70, 80, 90, 95] # Same as Child/Fisher/Addict + 10
 
 func get_save_data():
 	var save = super.get_save_data()
