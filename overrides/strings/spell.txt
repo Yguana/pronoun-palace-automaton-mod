@@ -1,4 +1,4 @@
 :red_letter:
 	:automaton:
 		Upgrades Important Notes to Personal Notes.
-		Multipliers never go below 0.5 and mood swings are easier to achieve.
+		Multipliers never go below 0.5 and all mood reset effects improve.

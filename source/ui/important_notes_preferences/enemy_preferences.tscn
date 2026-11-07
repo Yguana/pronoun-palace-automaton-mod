@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://b6yvsdpf15tvx"]
+
+[ext_resource type="Texture2D" uid="uid://i7gug4rimjhl" path="res://arte/ui/enemy_icons.png" id="1_0uyri"]
+[ext_resource type="Script" uid="uid://cuvaldmlwibca" path="res://mods/automaton_character/source/ui/important_notes_preferences/enemy_preferences.gd" id="1_shwiw"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="2_shwiw"]
+[ext_resource type="PackedScene" uid="uid://cvmptuf8xd5y4" path="res://mods/automaton_character/source/ui/important_notes_preferences/preference_icon.tscn" id="3_tn4hp"]
+[ext_resource type="Texture2D" uid="uid://dwol2g21flsyk" path="res://arte/spells/missing.png" id="3_x3557"]
+
+[node name="EnemyPreferences" type="Control" unique_id=1202339541 node_paths=PackedStringArray("preference_icons")]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_shwiw")
+preference_icons = [NodePath("HBoxContainer/HBoxContainer/PreferenceIcon"), NodePath("HBoxContainer/HBoxContainer/PreferenceIcon2"), NodePath("HBoxContainer/HBoxContainer/PreferenceIcon3"), NodePath("HBoxContainer/HBoxContainer/PreferenceIcon4")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=811620651]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -16.5
+offset_right = 50.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Control" type="Control" parent="HBoxContainer" unique_id=946312986]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer/Control" unique_id=1498820037]
+position = Vector2(0, -2)
+
+[node name="EnemySprite" type="Sprite2D" parent="HBoxContainer/Control/Node2D" unique_id=562840226]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, 2)
+texture = ExtResource("1_0uyri")
+offset = Vector2(16, 16)
+hframes = 11
+vframes = 3
+
+[node name="ShadowCloner" type="Node2D" parent="HBoxContainer/Control/Node2D/EnemySprite" unique_id=1133883716 node_paths=PackedStringArray("clone_offset", "modulate_source")]
+script = ExtResource("2_shwiw")
+clone_offset = NodePath("../../../../../ShadowGroup")
+modulate_source = NodePath("..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="CustomEnemySprite" type="Sprite2D" parent="HBoxContainer/Control/Node2D" unique_id=303449900]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+position = Vector2(0, 2)
+texture = ExtResource("1_0uyri")
+offset = Vector2(16, 16)
+
+[node name="ShadowCloner" type="Node2D" parent="HBoxContainer/Control/Node2D/CustomEnemySprite" unique_id=122875501 node_paths=PackedStringArray("clone_offset", "modulate_source")]
+script = ExtResource("2_shwiw")
+clone_offset = NodePath("../../../../../ShadowGroup")
+modulate_source = NodePath("..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="ErrorSprite" type="Sprite2D" parent="HBoxContainer/Control/Node2D" unique_id=812680390]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(-4, -1)
+scale = Vector2(1.1875, 1.1875)
+texture = ExtResource("3_x3557")
+offset = Vector2(16, 16)
+
+[node name="ShadowCloner" type="Node2D" parent="HBoxContainer/Control/Node2D/ErrorSprite" unique_id=392612526 node_paths=PackedStringArray("clone_offset", "modulate_source")]
+script = ExtResource("2_shwiw")
+clone_offset = NodePath("../../../../../ShadowGroup")
+modulate_source = NodePath("..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer" unique_id=1931454089]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PreferenceIcon" parent="HBoxContainer/HBoxContainer" unique_id=1905074534 instance=ExtResource("3_tn4hp")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+work_color = 0
+
+[node name="PreferenceIcon2" parent="HBoxContainer/HBoxContainer" unique_id=2115972114 instance=ExtResource("3_tn4hp")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+work_color = 1
+
+[node name="PreferenceIcon4" parent="HBoxContainer/HBoxContainer" unique_id=55010811 instance=ExtResource("3_tn4hp")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+work_color = 2
+
+[node name="PreferenceIcon3" parent="HBoxContainer/HBoxContainer" unique_id=2127448584 instance=ExtResource("3_tn4hp")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+work_color = 3
+
+[node name="ShadowGroup" type="CanvasGroup" parent="." unique_id=2057803597]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.5)
+position = Vector2(-2, -2)

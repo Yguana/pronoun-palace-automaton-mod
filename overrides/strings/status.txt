@@ -3,11 +3,11 @@
 		Enemy Mood
 
 	:description:
-		Affects your base damage and defense multipliers. Going up lowers damage while increasing defense and vice-versa.
+		Affects your base damage and defense multipliers. Enemy mood starts neutral. If no word is presented to the enemy, their mood will slowly turn neutral.
 		
-		Enemy mood starts neutral. If no word is presented to the enemy, their mood will slowly turn neutral.
+		After submitting a word, if the enemy is extremely {"happy or " not on_nobody}unhappy, gain a {"defense or " not on_nobody}damage bonus{", respectively," not on_nobody} and reset mood to neutral.
 		
-		Reaching {"top or" not on_nobody}{"the" if on_nobody} bottom will set the mood to neutral at turn end, after word submission, while also providing a damage{" or defense" not on_nobody} bonus and a crit tile.
+		Repeatedly triggering this effect also raises the max. value of your multipliers and starts converting tiles to crits. 
 		
 		{:extra_nobody_desc: if on_nobody}
 	

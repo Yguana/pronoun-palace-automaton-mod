@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cvmptuf8xd5y4"]
+
+[ext_resource type="Script" uid="uid://dleqab47xf16d" path="res://mods/automaton_character/source/ui/important_notes_preferences/preference_icon.gd" id="1_y46iq"]
+[ext_resource type="Texture2D" uid="uid://yw70f3g377mm" path="res://mods/automaton_character/arte/mood_preference_icons.png" id="2_rkyon"]
+[ext_resource type="Script" uid="uid://cfpkpmdehkp8u" path="res://source/ui/generic/shadow_cloner.gd" id="3_rkyon"]
+
+[node name="PreferenceIcon" type="CenterContainer" unique_id=2104538690]
+size_flags_horizontal = 2
+size_flags_vertical = 0
+script = ExtResource("1_y46iq")
+
+[node name="Control" type="Control" parent="." unique_id=553041143]
+layout_mode = 2
+
+[node name="Sprite" type="Sprite2D" parent="Control" unique_id=1981311926]
+unique_name_in_owner = true
+texture = ExtResource("2_rkyon")
+hframes = 5
+frame = 3
+
+[node name="ShadowCloner" type="Node2D" parent="Control/Sprite" unique_id=1574964146 node_paths=PackedStringArray("clone_offset", "modulate_source")]
+script = ExtResource("3_rkyon")
+clone_offset = NodePath("../Shadow_offset")
+modulate_source = NodePath("..")
+local_shadow_group = true
+metadata/_custom_type_script = "uid://cfpkpmdehkp8u"
+
+[node name="Shadow_offset" type="Marker2D" parent="Control/Sprite" unique_id=1439755879]
+position = Vector2(-2, -2)

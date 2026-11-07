@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://dv2hfpri8d147"]
+
+[ext_resource type="Script" uid="uid://bvoojnnworhu" path="res://mods/automaton_character/word_work_type_tool/mass_categorizer_work_type_room.gd" id="1_egr21"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1u0y"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.2724583, 0.2743837, 0.2607915, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s0fj"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(1, 1, 1, 0.80500007)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl2jl"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+bg_color = Color(0.69965374, 0.6996533, 0.6996537, 0.8039216)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(1, 0.3131306, 0.45801115, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmk81"]
+bg_color = Color(0, 0, 0, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_quxsg"]
+bg_color = Color(0.79217166, 0, 0.29042614, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id4fa"]
+bg_color = Color(0.7690427, 0.7080925, 0.5348811, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cih04"]
+bg_color = Color(0.52078027, 0.46532977, 0.30888683, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fgkf"]
+bg_color = Color(0.73154014, 0.5002568, 0.78077704, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17auh"]
+bg_color = Color(0.48714763, 0.2736236, 0.53061724, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlrcf"]
+bg_color = Color(0.15497252, 0.68764377, 0.6368709, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eppl4"]
+bg_color = Color(0.10153327, 0.47404557, 0.43782294, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0eln"]
+bg_color = Color(0.10153327, 0.47404557, 0.43782294, 0.43137255)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egr21"]
+bg_color = Color(0.8756056, 0.47312066, 0.33361515, 0.573)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tqruw"]
+bg_color = Color(0.78492296, 0.39358532, 0.25364426, 0.57254905)
+
+[node name="MassWorkCategorizer" type="Node2D" unique_id=170127490]
+script = ExtResource("1_egr21")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1699435384]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=774123140]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -125.5
+offset_right = 231.0
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="MarginContainer" type="PanelContainer" parent="HBoxContainer" unique_id=1817485296]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p1u0y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MarginContainer" unique_id=13806069]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1731218556]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IncludeCategoriesTextEdit" type="TextEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=756270837]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.15247625, 0.15247661, 0.15247631, 0.6)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_5s0fj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5s0fj")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_yl2jl")
+placeholder_text = "Include"
+autowrap_mode = 1
+
+[node name="ExcludeCategoriesTextEdit" type="TextEdit" parent="HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1260792373]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.15294118, 0.15294118, 0.15294118, 0.6)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_5s0fj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5s0fj")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_yl2jl")
+placeholder_text = "Exclude"
+autowrap_mode = 1
+virtual_keyboard_enabled = false
+
+[node name="ButtonGrid" type="HBoxContainer" parent="HBoxContainer/MarginContainer/VBoxContainer" unique_id=1891886536]
+layout_mode = 2
+
+[node name="Fort" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonGrid" unique_id=905621070]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmk81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_quxsg")
+text = "Fort"
+
+[node name="Insght" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonGrid" unique_id=1155970602]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_id4fa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cih04")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cih04")
+text = "Isgt"
+
+[node name="None" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonGrid" unique_id=1139816800]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+text = "None
+"
+
+[node name="Attatch" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonGrid" unique_id=944786406]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_0fgkf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_17auh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_17auh")
+text = "Atmt"
+
+[node name="Repress" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer/ButtonGrid" unique_id=1569270959]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_xlrcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_eppl4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w0eln")
+text = "Repr"
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=890841043]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_p1u0y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=1594171464]
+layout_mode = 2
+
+[node name="ExcludeCategoriesTextEdit2" type="TextEdit" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1655017297]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.15294118, 0.15294118, 0.15294118, 0.6)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_5s0fj")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5s0fj")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_yl2jl")
+editable = false
+
+[node name="Search" type="Button" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=1714760988]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 11
+theme_override_styles/normal = SubResource("StyleBoxFlat_egr21")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmk81")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tqruw")
+text = "Search"
