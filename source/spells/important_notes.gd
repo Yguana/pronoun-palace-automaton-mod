@@ -5,14 +5,15 @@ const special_enemy_sprites = preload("res://mods/automaton_character/misc/speci
 const enemy_color_filter = preload("res://mods/automaton_character/source/effects/enemy_color_filter.tscn")
 const mood_bar_room = preload("res://mods/automaton_character/source/ui/mood_bar/mood_bar.tscn")
 const multiplier_sub_tooltip = preload("res://mods/automaton_character/source/ui/mood_bar/mood_multipliers_subtooltip.tscn")
+const enemy_preference_tooltip = preload("res://mods/automaton_character/source/ui/important_notes_preferences/enemy_preferences.tscn")
 
 var Intent = WordBuilder.Intent
 
 const preference_multipliers = [
-	1.12,  # Really Likes
-	0.83,  # Likes
-	-0.83, # Dislikes
-	-1.12  # Really Dislikes
+	1,43,  # Really Likes
+	1.11,  # Likes
+	-1.11, # Dislikes
+	-1.43  # Really Dislikes
 ]
 const default_preferences_failsafe = [
 	Automaton.WORK_PREFERENCES.LIKES,
@@ -27,10 +28,22 @@ var mood_value = 0
 var max_pos_mood_value = 10
 var max_neg_mood_value = -10
 
-var pos_mood_revert_bonus = 3 # Amount of defense which will be added when mood goes from 10 -> 0
+var pos_mood_revert_bonus = 2 # Amount of defense which will be added when mood goes from 10 -> 0
 var should_add_pos_mood_bonus = false # Used to indicate when the defense bonus from above should be calculated
-var neg_mood_revert_bonus = 5 # Amount of attack which will be added when mood goes from -10 -> 0
+var neg_mood_revert_bonus = 2 # Amount of attack which will be added when mood goes from -10 -> 0
 var should_add_neg_mood_bonus = false # Used to indicate when the damage bonus from above should be calculated
+
+var base_mult_extreme: float:
+	get():
+		return min(
+			min_base_mult_extreme + (base_mult_extreme_step * (mood_bonus_resets_on_this_fight + 1)),
+			max_base_mult_extreme
+		)
+var min_base_mult_extreme = 1.4
+var max_base_mult_extreme = 2.0
+var base_mult_extreme_step: float:
+	get():
+		return get_base_mult_extreme_step()
 
 # Amount of times the mood bar has been reset in an encounter due to bonus triggers
 # Starts as -1 as it always increases duing turn end, while the effect only happens at turn start
@@ -151,6 +164,16 @@ func make_nobody_changes(from_continue_run: bool) -> void:
 
 func get_tooltip_context():
 	return {curse = curse, work_type = state, recent_word_queue_placement = recent_word_queue_placement}
+
+func generate_player_spell_base_tooltip(tooltip: GameTooltip) -> void:
+	var enemy_mood_holder = tile_board.create_preview_tile()
+	enemy_mood_holder.hover_container.visible = false # Hides the tile sprite
+	
+	var true_tooltip = enemy_preference_tooltip.instantiate()
+	enemy_mood_holder.add_child(true_tooltip)
+	tooltip.add_subtooltip(get_title(), get_description(),enemy_mood_holder)
+	
+	true_tooltip.prepare_preference(Game.enemy.id,get_enemy_word_preference(Game.enemy.id))
 
 func get_curse_description() -> String:
 	if curse == CURSE.CURSED:
@@ -481,8 +504,15 @@ func get_future_mood_value(clamp_result: bool = true) -> int:
 	var mood_gain_multiplier = preference_multipliers[full_enemy_preferences[word_work_type]]
 	var mood_value_change = _get_mood_value_change_from_word_length(word_size)
 	mood_value_change = int(mood_value_change * mood_gain_multiplier)
+	
+	var final_change
+	if mood_value_change < 1 and mood_value_change > -1: 
+		final_change = mood_value_change/abs(mood_value_change)
+	else:
+		final_change = mood_value_change
+	
 	var base_value
-	if (mood_value_change > 0) == (mood_value > 0) or mood_value == 0 or has_switched_to_nobody_moods:
+	if (final_change > 0) == (mood_value > 0) or mood_value == 0 or has_switched_to_nobody_moods:
 		base_value = mood_value
 	else:
 		# When switching from Happy --> Sad or Sad --> Happy, gives the the player a small boost by
@@ -490,7 +520,7 @@ func get_future_mood_value(clamp_result: bool = true) -> int:
 		# situations, which could feel unfair / tedious otherwise.
 		base_value = _get_fair_lowered_mood_for_sign_swap()
 	
-	var new_mood_value = base_value + mood_value_change
+	var new_mood_value = base_value + final_change
 	
 	if clamp_result:
 		return clamp_to_fit_mood_value_range(new_mood_value)
@@ -512,8 +542,8 @@ func _get_mood_affected_base_multipliers(fomula_value: int) -> Dictionary:
 	var raw_defense_mult = _math_formula(fomula_value)
 	
 	var return_dict = {
-		"damage_multiplier" : raw_damage_mult,
-		"defense_multiplier": raw_defense_mult 
+		"damage_multiplier" : min(raw_damage_mult,base_mult_extreme),
+		"defense_multiplier": min(raw_defense_mult,base_mult_extreme)
 	} 
 	return return_dict
 
@@ -533,6 +563,9 @@ func _get_mood_affected_full_multipliers(fomula_value: int, with_corrected_value
 	base_multipliers.damage_multiplier  += crit_dam_multiplier_additions
 	base_multipliers.defense_multiplier += crit_def_multiplier_additions 
 	return base_multipliers
+
+func get_base_mult_extreme_step() -> float:
+	return 0.2
 
 # Exponential equation that results in the proper multipliers. Done by Natalie. Thanks Natalie :-)
 func _math_formula(x:int) -> float:
@@ -590,7 +623,7 @@ func turn_end():
 		#	_set_for_late_cursed_transform()
 			
 		if mood_value != 0 and not has_reset_mood:
-			_handle_no_use_mood_halving()
+			_handle_no_use_mood_lowering()
 
 func battle_started():
 	super.battle_started()
@@ -680,11 +713,11 @@ func place_mood_bar_ui(play_fade_in: bool = false) -> void:
 #==================================================================================
 #                                   MOOD BONUS
 
-## Halves mood value, usually rounding up (exception made so the value can reach 0)[br]
+## Lowers mood value, usually rounding up (exception made so the value can reach 0)[br]
 ## Reserved for a situation where the player didn't use the spell during a turn.
-func _handle_no_use_mood_halving() -> void:
+func _handle_no_use_mood_lowering() -> void:
 	if abs(mood_value) != 1:
-		mood_value = ceil(mood_value/2.0)
+		mood_value = floor(mood_value/2.0)
 	else:
 		mood_value = 0
 		
@@ -707,7 +740,8 @@ func _handle_max_mood_reset_and_bonus() -> void:
 	
 	await _force_mood_bar_turn_end_change(mood_value,true)
 	
-	var crit_ammount = ceil(float(mood_bonus_resets_on_this_fight)/2)
+	var crit_ammount = ceil(float(mood_bonus_resets_on_this_fight)/3)
+	crit_ammount = min(crit_ammount,3)
 	await _summon_bonus_crit_tile(crit_tile_type,crit_ammount)
 	
 	await Game.timeout(0.42)
@@ -724,9 +758,9 @@ func _force_mood_bar_turn_end_change(new_mood_value: int, big_delay: bool = fals
 
 func get_bonus_reset_value(for_positive_bonus: bool) -> int:
 	if for_positive_bonus:
-		return pos_mood_revert_bonus + (mood_bonus_resets_on_this_fight * 2)
+		return pos_mood_revert_bonus + mood_bonus_resets_on_this_fight
 	else:
-		return neg_mood_revert_bonus + (mood_bonus_resets_on_this_fight * 2)
+		return neg_mood_revert_bonus + mood_bonus_resets_on_this_fight
 
 func _create_mood_bonus_reset_filter(positive_mood: bool) -> void:
 	# Reuses the same tweener as the one called in _create_enemy_mood_filter_effect()
